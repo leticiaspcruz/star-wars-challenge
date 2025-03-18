@@ -1,0 +1,50 @@
+# Star Wars Challenge Project
+
+Este projeto foi desenvolvido com Next.js, React.js e TypeScript para demonstrar minhas habilidades com essas tecnologias. 
+
+## Iniciando o Projeto
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) instalado em sua máquina.
+
+    ```bash
+    nvm use 20
+    ```
+
+- Gerenciador de pacotes npm ou yarn.
+
+### Executando Localmente
+
+Siga os passos abaixo para rodar o projeto em sua máquina local:
+
+1. Clone este repositório:
+    ```bash
+    git clone https://github.com/leticiaspcruz/star-wars-challenge.git
+    ```
+
+2. Instale as dependências:
+    ```bash
+    npm install
+    # ou
+    yarn install
+    ```
+
+3. Inicie o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    # ou
+    yarn dev
+    ```
+
+4. Abra o navegador e acesse:
+    ```
+    http://localhost:3000
+    ```
+
+## Tecnologias Utilizadas
+
+Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
+
+- **[Next.js](https://nextjs.org/docs):** Framework React para renderização do lado do servidor e geração estática.
+- **[Styled Components](https://styled-components.com/docs):** Biblioteca para estilização de componentes em React, utilizando CSS-in-JS.
