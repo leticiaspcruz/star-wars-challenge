@@ -5,6 +5,9 @@ export const lightTheme = {
       background: '#f5f6fa',
       navbar: '#232323',
       text: '#1d1d1d',
+      button: {
+        text: '#1d1d1d',
+      }
     },
     fontFamily: {
       primary: 'var(--font-instrument-sans)',

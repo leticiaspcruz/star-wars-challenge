@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { Button } from '@/components';
+import * as S from './styles';
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -12,21 +13,21 @@ const Pagination: React.FC<PaginationProps> = ({
   onPageChange
 }) => {
   return (
-    <div>
-      <button 
+    <S.Container>
+      <Button 
         onClick={() => onPageChange(Math.max(currentPage - 1, 1))} 
         disabled={currentPage === 1}
       >
         Anterior
-      </button>
+      </Button>
       <span>Página {currentPage} de {totalPages}</span>
-      <button 
+      <Button 
         onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))} 
         disabled={currentPage === totalPages}
       >
         Próxima
-      </button>
-    </div>
+      </Button>
+    </S.Container>
   );
 };
 

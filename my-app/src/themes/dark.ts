@@ -5,6 +5,9 @@ export const darkTheme = {
     background: '#1d1d1d',
     navbar: '#232323',
     text: '#f5f6fa',
+    button: {
+      text: '#1d1d1d',
+    }
   },
   fontFamily: {
     primary: 'var(--font-instrument-sans)',

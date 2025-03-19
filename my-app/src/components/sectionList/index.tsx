@@ -1,6 +1,6 @@
 import React from 'react';
-import { Pagination } from '@/components';
-
+import { Container, Pagination, Text } from '@/components';
+import * as S from './styles';
 interface Item {
   name: string;
 }
@@ -12,7 +12,7 @@ interface SectionListProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  itemType: string; 
+  itemType: string;
 }
 
 const SectionList: React.FC<SectionListProps> = ({
@@ -22,28 +22,33 @@ const SectionList: React.FC<SectionListProps> = ({
   currentPage,
   totalPages,
   onPageChange,
-  itemType
+  itemType,
 }) => {
   return (
-    <section>
-      <h2>{itemType}</h2>
+    <Container>
+      <Text weight='bold'>{itemType}</Text>
 
-      {isLoading && <p>Carregando {itemType.toLowerCase()}...</p>}
-      {isError && <p>{isError}</p>}
+      {isLoading && <Text>Carregando {itemType.toLowerCase()}...</Text>}
+      {isError && <Text>{typeof isError === 'string' ? isError : 'Ocorreu um erro.'}</Text>}
 
-      <ul>
-        {items.map((item) => (
-          <li key={item.name}>{item.name}</li>
-        ))}
-      </ul>
+      {items.length > 0 && !isLoading ? (
+        <S.ListItems>
+          {items.map((item) => (
+            <li key={item.name}>
+              <Text>{item.name}</Text>
+            </li>
+          ))}
+        </S.ListItems>
+      ) : (
+        !isLoading && <Text>Não há {itemType.toLowerCase()} disponíveis.</Text>
+      )}
 
       <Pagination 
         currentPage={currentPage} 
         totalPages={totalPages} 
         onPageChange={onPageChange} 
       />
-
-    </section>
+    </Container>
   );
 };
 

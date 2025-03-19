@@ -7,3 +7,4 @@ export { default as Logo } from './logo';
 export { default as Breadcrumb } from './breadcrumb';
 export { default as Text } from './text';
 export { default as Container } from './container';
+export { default as Button } from './button';
