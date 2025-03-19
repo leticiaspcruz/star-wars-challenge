@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 interface TextProps {
   variant: 'heading' | 'subheading' | 'paragraph' | 'small';
   weight: 'regular' | 'bold' | 'light';
+  align: 'left' | 'center' | 'right'; 
 }
 
 const textVariants = {
@@ -23,6 +24,7 @@ export const Text = styled.p<TextProps>`
   font-size: ${({ variant }) => textVariants[variant] || textVariants.paragraph};
   font-weight: ${({ weight }) => textWeights[weight] || textWeights.regular};
   color: ${({ theme }) => theme.colors.text};
+    text-align: ${({ align }) => align};
   line-height: 1.5;
   margin: 0;
 `;

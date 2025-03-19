@@ -35,7 +35,9 @@ const useCharacters = (searchTerm: string = '', page: number = 1) => {
       console.error('Erro ao buscar dados:', error);
       setError('Erro ao buscar dados.');
     } finally {
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   }, [searchTerm, page, key]);
 

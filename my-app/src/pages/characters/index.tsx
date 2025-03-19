@@ -32,7 +32,7 @@ export default function CharactersPage() {
           currentPage={characterPage}
           totalPages={characterTotalPages}
           onPageChange={handlePageChange}
-          itemType="Personagens"
+          itemType='character'
         />
       </Container>
   );

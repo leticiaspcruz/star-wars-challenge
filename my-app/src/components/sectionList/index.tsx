@@ -1,8 +1,11 @@
 import React from 'react';
-import { Container, Pagination, Text } from '@/components';
+import { Pagination, Text, Card, Loader } from '@/components';
+import { Character, Planet } from '@/interfaces/swapi';
 import * as S from './styles';
-interface Item {
+
+interface Item extends Character, Planet {
   name: string;
+  url: string;
 }
 
 interface SectionListProps {
@@ -12,7 +15,8 @@ interface SectionListProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  itemType: string;
+  itemType: 'character' | 'planet';
+  useTitle?: boolean;
 }
 
 const SectionList: React.FC<SectionListProps> = ({
@@ -23,32 +27,30 @@ const SectionList: React.FC<SectionListProps> = ({
   totalPages,
   onPageChange,
   itemType,
+  useTitle = true,
 }) => {
   return (
-    <Container>
-      <Text weight='bold'>{itemType}</Text>
+      <S.Container>
+        {useTitle && <Text weight="bold" variant='subheading'>{itemType === 'character' ? 'Personagens' : 'Planetas'}</Text>}
 
-      {isLoading && <Text>Carregando {itemType.toLowerCase()}...</Text>}
-      {isError && <Text>{typeof isError === 'string' ? isError : 'Ocorreu um erro.'}</Text>}
+        {isLoading && <Loader />}
+        {isError && <Text>{typeof isError === 'string' ? isError : 'Ocorreu um erro.'}</Text>}
 
-      {items.length > 0 && !isLoading ? (
-        <S.ListItems>
-          {items.map((item) => (
-            <li key={item.name}>
-              <Text>{item.name}</Text>
-            </li>
-          ))}
-        </S.ListItems>
-      ) : (
-        !isLoading && <Text>Não há {itemType.toLowerCase()} disponíveis.</Text>
-      )}
-
-      <Pagination 
-        currentPage={currentPage} 
-        totalPages={totalPages} 
-        onPageChange={onPageChange} 
-      />
-    </Container>
+        <S.CardList>
+          {items.length > 0 && !isLoading && !isError ? (
+            items.map((item, index) => (
+                <Card key={index} data={item} type={itemType} />
+            ))
+          ) : (
+            !isLoading && <Text>Não há {itemType.toLowerCase()} disponíveis.</Text>
+          )}
+        </S.CardList>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
+      </S.Container>
   );
 };
 

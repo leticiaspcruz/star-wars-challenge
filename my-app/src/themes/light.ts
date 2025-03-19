@@ -4,6 +4,7 @@ export const lightTheme = {
       secondary: '#ffdd59',
       background: '#f5f6fa',
       navbar: '#232323',
+      card: '#f5f6fa',
       text: '#1d1d1d',
       button: {
         text: '#1d1d1d',

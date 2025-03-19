@@ -32,7 +32,7 @@ export default function PlanetsPage() {
           currentPage={planetPage}
           totalPages={planetTotalPages}
           onPageChange={handlePageChange}
-          itemType="Planetas"
+          itemType='planet'
         />
       </Container>
   );
