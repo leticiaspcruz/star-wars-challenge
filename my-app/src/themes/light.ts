@@ -2,7 +2,7 @@ export const lightTheme = {
     colors: {
       primary: 'white',
       secondary: 'red',
-      background: 'linear-gradient(to right, rgb(233, 232, 225), rgb(230, 255, 235))',
+      background: 'white',
       text: 'black',
     },
     fontFamily: {

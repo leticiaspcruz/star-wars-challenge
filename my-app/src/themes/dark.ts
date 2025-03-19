@@ -2,7 +2,7 @@ export const darkTheme = {
   colors: {
     primary: 'black',
     secondary: 'gray',
-    background: 'linear-gradient(to right, rgb(233, 232, 225), rgb(230, 255, 235))',
+    background: 'black',
     text: 'white',
   },
   fontFamily: {

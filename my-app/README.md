@@ -47,4 +47,8 @@ Siga os passos abaixo para rodar o projeto em sua máquina local:
 Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
 
 - **[Next.js](https://nextjs.org/docs):** Framework React para renderização do lado do servidor e geração estática.
+- **[React.js](https://react.dev/):**Biblioteca JavaScript para construção de interfaces de usuário.
+- **[Axios](https://axios-http.com/):**Cliente HTTP baseado em promessas para fazer requisições.
 - **[Styled Components](https://styled-components.com/docs):** Biblioteca para estilização de componentes em React, utilizando CSS-in-JS.
+- **[use-debounce](https://www.npmjs.com/package/use-debounce):** Hook para debouncing de valores em React.
+
