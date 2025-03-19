@@ -1,5 +1,5 @@
-import useCharacters from '@/hooks/useCharacters';
-import usePlanets from '@/hooks/usePlanets';
+import { SwitchTheme } from '@/components';
+import { useCharacters, usePlanets } from '@/hooks';
 
 export default function Home() {
   const { characters, isCharactersLoading, isError: charactersError } = useCharacters();
@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <div>
       <h1>Bem-vindo à Star Wars App</h1>
+      <SwitchTheme />
     </div>
   );
 }
