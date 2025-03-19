@@ -1,9 +1,10 @@
 export const darkTheme = {
   colors: {
-    primary: 'black',
-    secondary: 'gray',
-    background: 'black',
-    text: 'white',
+    primary: '#ffc048',
+    secondary: '#ffdd59',
+    background: '#1d1d1d',
+    navbar: '#232323',
+    text: '#f5f6fa',
   },
   fontFamily: {
     primary: 'var(--font-instrument-sans)',

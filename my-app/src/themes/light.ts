@@ -1,9 +1,10 @@
 export const lightTheme = {
     colors: {
-      primary: 'white',
-      secondary: 'red',
-      background: 'white',
-      text: 'black',
+      primary: '#ffc048',
+      secondary: '#ffdd59',
+      background: '#f5f6fa',
+      navbar: '#232323',
+      text: '#1d1d1d',
     },
     fontFamily: {
       primary: 'var(--font-instrument-sans)',

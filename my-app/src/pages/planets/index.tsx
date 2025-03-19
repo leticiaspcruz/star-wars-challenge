@@ -5,7 +5,7 @@ import { usePlanets } from '@/hooks';
 export default function PlanetsPage() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [planetPage, setPlanetPage] = useState<number>(1);
-  const { planets, isPlanetsLoading, isError: planetsError, totalPages: planetTotalPages } = usePlanets(searchTerm, planetPage);
+  const { planets, isLoading: isPlanetsLoading, error: planetsError, totalPages: planetTotalPages } = usePlanets(searchTerm, planetPage);
 
   const handleSearch = (term: string) => {
     setSearchTerm(term);

@@ -5,7 +5,7 @@ import { SearchInput, SectionList } from '@/components';
 export default function CharactersPage() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [characterPage, setCharacterPage] = useState<number>(1);
-  const { characters, isCharactersLoading, isError: charactersError, totalPages: characterTotalPages } = useCharacters(searchTerm, characterPage);
+  const { characters, isLoading: isCharactersLoading, error: charactersError, totalPages: characterTotalPages } = useCharacters(searchTerm, characterPage);
 
   const handleSearch = (term: string) => {
     setSearchTerm(term);

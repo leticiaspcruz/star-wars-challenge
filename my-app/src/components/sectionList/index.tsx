@@ -1,4 +1,5 @@
 import React from 'react';
+import { Pagination } from '@/components';
 
 interface Item {
   name: string;
@@ -36,15 +37,12 @@ const SectionList: React.FC<SectionListProps> = ({
         ))}
       </ul>
 
-      <div>
-        <button onClick={() => onPageChange(Math.max(currentPage - 1, 1))} disabled={currentPage === 1}>
-          Anterior
-        </button>
-        <span>Página {currentPage} de {totalPages}</span>
-        <button onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))} disabled={currentPage === totalPages}>
-          Próxima
-        </button>
-      </div>
+      <Pagination 
+        currentPage={currentPage} 
+        totalPages={totalPages} 
+        onPageChange={onPageChange} 
+      />
+
     </section>
   );
 };
