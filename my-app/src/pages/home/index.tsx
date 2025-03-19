@@ -1,23 +1,64 @@
-import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useCharacters, usePlanets } from '@/hooks';
+import { SearchInput, SectionList, Container } from '@/components';
 
 export default function Home() {
-  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchType, setSearchType] = useState<'characters' | 'planets' | undefined>(undefined);
+  
+  const [characterPage, setCharacterPage] = useState<number>(1);
+  const { characters, isLoading: isCharactersLoading, error: charactersError, totalPages: characterTotalPages } = useCharacters(searchTerm, characterPage);
+  
+  const [planetPage, setPlanetPage] = useState<number>(1);
+  const { planets, isLoading: isPlanetsLoading, error: planetsError, totalPages: planetTotalPages } = usePlanets(searchTerm, planetPage);
 
-  const handleRedirectToCharacters = () => {
-    router.push('/characters');
+  const handleSearch = (term: string) => {
+    setSearchTerm(term);
+    setCharacterPage(1);
+    setPlanetPage(1);
+    
+    if (term.toLowerCase().includes('planeta')) {
+      setSearchType('planets');
+    } else {
+      setSearchType('characters');
+    }
   };
 
-  const handleRedirectToPlanets = () => {
-    router.push('/planets');
+  const handleCharactersPageChange = (newPage: number) => {
+    setCharacterPage(newPage);
+  };
+
+  const handlePlanetsPageChange = (newPage: number) => {
+    setPlanetPage(newPage);
   };
 
   return (
-    <div>
-      <h1>Bem-vindo à Star Wars App</h1>
-        <button onClick={handleRedirectToCharacters}>Ir para Personagens</button>
-        <button onClick={handleRedirectToPlanets}>
-          Ir para Planetas
-        </button>
-    </div>
+    <Container>
+      <SearchInput onSearch={handleSearch} placeholder="Buscar personagem ou planeta" />
+      
+      {(searchType === 'characters' || searchType === undefined) && (
+        <SectionList 
+          items={characters}
+          isLoading={isCharactersLoading}
+          isError={charactersError}
+          currentPage={characterPage}
+          totalPages={characterTotalPages}
+          onPageChange={handleCharactersPageChange}
+          itemType="Personagens"
+        />
+      )}
+
+      {(searchType === 'planets' || searchType === undefined) && (
+        <SectionList 
+          items={planets}
+          isLoading={isPlanetsLoading}
+          isError={planetsError}
+          currentPage={planetPage}
+          totalPages={planetTotalPages}
+          onPageChange={handlePlanetsPageChange}
+          itemType="Planetas"
+        />
+      )}
+    </Container>
   );
 }

@@ -4,3 +4,6 @@ export { default as SectionList } from './sectionList';
 export { default as NavBar } from './navbar';
 export { default as Pagination } from './pagination';
 export { default as Logo } from './logo';
+export { default as Breadcrumb } from './breadcrumb';
+export { default as Text } from './text';
+export { default as Container } from './container';

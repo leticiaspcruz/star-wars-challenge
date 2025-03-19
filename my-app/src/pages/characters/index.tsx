@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useCharacters } from '@/hooks';
-import { SearchInput, SectionList } from '@/components';
+import { SearchInput, SectionList, Breadcrumb, Container } from '@/components';
 
 export default function CharactersPage() {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -16,8 +16,14 @@ export default function CharactersPage() {
     setCharacterPage(newPage);
   };
 
+  const breadcrumbItems = [
+    { name: 'home', href: '/' },
+    { name: 'personagens', href: '/characters' },
+  ]
+
   return (
-      <section>
+      <Container>
+        <Breadcrumb items={breadcrumbItems} />
         <SearchInput onSearch={handleSearch} placeholder="Buscar personagem..." />
         <SectionList 
           items={characters}
@@ -28,6 +34,6 @@ export default function CharactersPage() {
           onPageChange={handlePageChange}
           itemType="Personagens"
         />
-      </section>
+      </Container>
   );
 }

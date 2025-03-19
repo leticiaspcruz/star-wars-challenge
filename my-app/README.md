@@ -51,4 +51,5 @@ Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
 - **[Axios](https://axios-http.com/):** Cliente HTTP baseado em promessas para fazer requisições.
 - **[Styled Components](https://styled-components.com/docs):** Biblioteca para estilização de componentes em React, utilizando CSS-in-JS.
 - **[use-debounce](https://www.npmjs.com/package/use-debounce):** Hook para debouncing de valores em React.
+- **[React Icons](https://react-icons.github.io/react-icons/):** Biblioteca para incluir ícones no projeto.
 

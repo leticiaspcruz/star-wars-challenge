@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SearchInput, SectionList } from '@/components';
+import { SearchInput, SectionList, Breadcrumb, Container } from '@/components';
 import { usePlanets } from '@/hooks';
 
 export default function PlanetsPage() {
@@ -16,8 +16,14 @@ export default function PlanetsPage() {
     setPlanetPage(newPage);
   };
 
+  const breadcrumbItems = [
+    { name: 'home', href: '/' },
+    { name: 'planetas', href: '/planets' },
+  ]
+
   return (
-      <section>
+      <Container>
+        <Breadcrumb items={breadcrumbItems} />
         <SearchInput onSearch={handleSearch} placeholder="Buscar planeta..." />
         <SectionList 
           items={planets}
@@ -28,6 +34,6 @@ export default function PlanetsPage() {
           onPageChange={handlePageChange}
           itemType="Planetas"
         />
-      </section>
+      </Container>
   );
 }

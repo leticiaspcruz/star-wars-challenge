@@ -60,4 +60,5 @@ export const MobileMenu = styled.div<{ isOpen: boolean }>`
   visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
   overflow: hidden; 
   transition: max-height 0.3s ease-out, visibility 0.3s ease-out;
+  z-index: 20;
 `;
