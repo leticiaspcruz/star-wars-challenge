@@ -15,8 +15,9 @@ interface SectionListProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  itemType: 'character' | 'planet';
+  itemType: 'character' | 'planet' | 'favorites';
   useTitle?: boolean;
+  usePagination?: boolean;
 }
 
 const SectionList: React.FC<SectionListProps> = ({
@@ -28,10 +29,18 @@ const SectionList: React.FC<SectionListProps> = ({
   onPageChange,
   itemType,
   useTitle = true,
+  usePagination = true,
 }) => {
+
+  const titles: Record<string, string> = {
+    character: 'personagens',
+    planet: 'planetas',
+    favorites: 'meus favoritos',
+  };
+
   return (
       <S.Container>
-        {useTitle && <Text weight="bold" variant='subheading'>{itemType === 'character' ? 'Personagens' : 'Planetas'}</Text>}
+        {useTitle && <Text weight="bold" variant='subheading'>{titles[itemType]}</Text>}
 
         {isLoading && <Loader />}
         {isError && <Text>{typeof isError === 'string' ? isError : 'Ocorreu um erro.'}</Text>}
@@ -42,14 +51,16 @@ const SectionList: React.FC<SectionListProps> = ({
                 <Card key={index} data={item} type={itemType} />
             ))
           ) : (
-            !isLoading && <Text>Não há {itemType.toLowerCase()} disponíveis.</Text>
+            !isLoading && <Text>Ops! Não existe nada em {titles[itemType]}.</Text>
           )}
         </S.CardList>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={onPageChange}
-        />
+        {usePagination && 
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={onPageChange}
+          />
+        }
       </S.Container>
   );
 };

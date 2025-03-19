@@ -22,4 +22,5 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: ${({ theme }) => theme.sizes.sm};
+  margin: ${({ theme }) => theme.sizes.sm} auto;
 `;

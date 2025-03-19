@@ -18,3 +18,8 @@ export const InfoWrapper = styled.div`
   gap: ${({ theme }) => `${theme.sizes.xxl}`};
   overflow: hidden;
 `;
+
+export const FavoriteWrapper = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+`;
