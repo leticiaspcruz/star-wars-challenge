@@ -1,17 +1,25 @@
+import { useRouter } from 'next/router';
 import { SwitchTheme } from '@/components';
-import { useCharacters, usePlanets } from '@/hooks';
 
 export default function Home() {
-  const { characters, isCharactersLoading, isError: charactersError } = useCharacters();
-  const { planets, isPlanetsLoading, isError: planetsError } = usePlanets();
+  const router = useRouter();
 
-  console.log('characters --', characters, isCharactersLoading, charactersError);
-  console.log('planets --',  planets, isPlanetsLoading, planetsError);
+  const handleRedirectToCharacters = () => {
+    router.push('/characters');
+  };
+
+  const handleRedirectToPlanets = () => {
+    router.push('/planets');
+  };
 
   return (
     <div>
       <h1>Bem-vindo à Star Wars App</h1>
       <SwitchTheme />
+        <button onClick={handleRedirectToCharacters}>Ir para Personagens</button>
+        <button onClick={handleRedirectToPlanets}>
+          Ir para Planetas
+        </button>
     </div>
   );
 }
