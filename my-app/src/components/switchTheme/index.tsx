@@ -1,11 +1,21 @@
+'use client';
 import React from 'react'
-import { useTheme } from '@/hooks';
+import { useContext } from 'react';
+import { ThemeContext } from '@/providers/ThemeContext';
 
 const SwitchTheme = () => {
-    const { toggleTheme } = useTheme();
+    const themeContext = useContext(ThemeContext);
+    const { toggleTheme, theme } = themeContext;
 
+    console.log('themeContext --', themeContext);
+    console.log('theme --', theme);
+    console.log('toggleTheme --', toggleTheme);
+
+    console.log("switch renderizado");
     return (
-        <button onClick={toggleTheme}>Mudar tema</button>
+        <button onClick={toggleTheme}>            
+            Mudar tema - Tema atual: {theme}
+        </button>
     );
 }
 
