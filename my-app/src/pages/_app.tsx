@@ -1,5 +1,4 @@
-'use client';
-
+import type { AppProps } from 'next/app'
 import GlobalStyles from '@/themes/globalStyles';
 import { Instrument_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/providers/ThemeContext';
@@ -10,19 +9,13 @@ const instrumentSans = Instrument_Sans({
   weight: ['400', '700'],
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
-      <html lang="en" className={`${instrumentSans.variable}`}>
-        <body>
-          <GlobalStyles />
-          {children}
-        </body>
-      </html>
+      <div className={`${instrumentSans.variable}`}>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </div>
     </ThemeProvider>
   );
 }
