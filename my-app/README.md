@@ -52,4 +52,4 @@ Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
 - **[Styled Components](https://styled-components.com/docs):** Biblioteca para estilização de componentes em React, utilizando CSS-in-JS.
 - **[use-debounce](https://www.npmjs.com/package/use-debounce):** Hook para debouncing de valores em React.
 - **[React Icons](https://react-icons.github.io/react-icons/):** Biblioteca para incluir ícones no projeto.
-
+- **[Formik](https://formik.org/):** Biblioteca para gerenciamento de formulários em React, simplificando o processo de validação e envio de dados.

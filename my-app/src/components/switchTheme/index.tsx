@@ -1,9 +1,7 @@
-'use client';
 import React, { ReactNode, useContext } from 'react';
 import { ThemeContext } from '@/providers/ThemeContext';
 import * as S from './styles';
-
-type SwitchProps = {
+interface SwitchProps {
     onChange: () => void;
     checked: boolean;
     children?: ReactNode;

@@ -13,3 +13,6 @@ export { default as Loader} from './loader';
 export { default as Footer } from './footer';
 export { default as Banner } from './banner';
 export { default as Error} from './error';
+export { default as CharacterFilters } from './charactersFilters';
+export { default as PlanetsFilters } from './planetsFilters';
+export { default as Select } from './select';

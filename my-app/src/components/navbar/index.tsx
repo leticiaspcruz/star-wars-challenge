@@ -5,7 +5,7 @@ import { NAV_LINKS } from '@/constants/navbar';
 import { Logo, SwitchTheme } from '@/components';
 import { useScreenSize } from '@/hooks';
 
-const NavBar: React.FC = () => {
+const NavBar = () => {
   const { isClient, isMobileView } = useScreenSize();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

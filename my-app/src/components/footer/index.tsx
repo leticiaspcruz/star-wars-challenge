@@ -3,7 +3,7 @@ import { SOCIAL_MEDIA } from '@/constants/socialMedia';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import * as S from './styles';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <S.FooterContainer>
       <S.CopyRightText>

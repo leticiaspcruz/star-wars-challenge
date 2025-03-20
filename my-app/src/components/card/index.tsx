@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, Button } from '@/components';
 import { Character, Planet } from '@/interfaces/swapi';
 import * as S from './styles';
-
-type CardProps = {
+interface CardProps {
   type: 'character' | 'planet' | 'favorites';
   data: Character | Planet;
 };
