@@ -34,30 +34,30 @@ const SectionList: React.FC<SectionListProps> = ({
   };
 
   if(isLoading) return <Loader />;
-  if(isError) return <Text>Ops! Ocorreu um erro, tente novamente mais tarde.</Text>
+  if(isError) return <Text>Ops! Ocorreu um erro, tente novamente mais tarde.</Text>;
 
   return (
-      <S.Container>
-        {useTitle && <Text weight="bold" variant='subheading'>{titles[itemType]}</Text>}
+    <S.Container>
+      {useTitle && <Text weight="bold" variant='subheading'>{titles[itemType]}</Text>}
 
-        <S.CardList>
-          {items.length > 0 && !isLoading && !isError ? (
-            items.map((item, index) => (
-                <Card key={index} data={item} type={itemType} />
-            ))
-          ) : (
-            !isLoading && <Text>Ops! Não existe nada em {titles[itemType]}.</Text>
-          )}
-        </S.CardList>
-        
-        {usePagination && 
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={onPageChange}
-          />
-        }
-      </S.Container>
+      <S.CardList>
+        {items.length > 0 && !isLoading && !isError ? (
+          items.map((item, index) => (
+            <Card key={index} data={item} type={itemType} />
+          ))
+        ) : (
+          !isLoading && <Text>Ops! Não existe nada em {titles[itemType]}.</Text>
+        )}
+      </S.CardList>
+
+      {usePagination && 
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
+      }
+    </S.Container>
   );
 };
 

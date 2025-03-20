@@ -12,3 +12,4 @@ export { default as Card } from './card';
 export { default as Loader} from './loader';
 export { default as Footer } from './footer';
 export { default as Banner } from './banner';
+export { default as Error} from './error';

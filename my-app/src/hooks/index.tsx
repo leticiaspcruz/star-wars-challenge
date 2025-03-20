@@ -3,3 +3,4 @@ export { default as useCharacters } from './useCharacters';
 export { default as useTheme } from './useTheme';
 export { default as useScreenSize} from './useScreenSize';
 export { default as useFavorites } from './useFavorites';
+export { default as useFilms } from './useFilms';
