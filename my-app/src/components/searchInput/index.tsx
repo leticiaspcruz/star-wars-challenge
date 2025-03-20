@@ -25,7 +25,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch, placeholder }) => {
 
   return (
     <S.Container>
-      <Text>Faça sua pesquisa</Text>
+      <Text>Faça sua pesquisa:</Text>
       <S.SearchContainer>
         <S.Search
           type="text"

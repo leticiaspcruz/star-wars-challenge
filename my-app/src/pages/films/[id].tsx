@@ -2,37 +2,54 @@ import { useRouter } from 'next/router';
 import { useFilms } from '@/hooks';
 import { Button, Text, Container, Loader, Banner } from '@/components';
 import BannerHome from '@/assets/home-banner.jpg';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
+import { formatDate } from '@/utils/formatDate';
 import FilmOne from '@/assets/filme1.jpg';
+import FilmTwo from '@/assets/filme2.jpg';
+import FilmThree from '@/assets/filme3.jpg';
+import FilmFour from '@/assets/filme4.jpeg';
+import FilmFive from '@/assets/filme5.jpg';
+import FilmSix from '@/assets/filme6.jpg';
 import * as S from './styles';
+
+const filmImages: { [key: string]: StaticImageData } = {
+  '1': FilmOne,
+  '2': FilmTwo,
+  '3': FilmThree,
+  '4': FilmFour,
+  '5': FilmFive,
+  '6': FilmSix,
+};
 
 const FilmDetailsPage = () => {
   const router = useRouter();
   const { id } = router.query;
-
   const { film, isLoading, error } = useFilms(id as string);
 
   if (isLoading) return <Loader />;
-  if (error) return <Text>{error}</Text>; 
+  if (error) return <Text>{error}</Text>;
 
   const renderFilmInfo = () => {
     if (film) {
+      const selectedImage = filmImages[id as string];
+
       return (
         <>
           {film.title && <Text weight="bold">{film.title}</Text>}
-          <S.ImageContainer>
-            <Image
-                src={FilmOne}
-                alt='Poster do filme'
-                width='250'
-                height='350'
-                loading="lazy"
+          {selectedImage && <S.ImageContainer>
+              <Image
+              src={selectedImage}
+              alt="Poster do filme"
+              width="250"
+              height="350"
+              loading="lazy"
               />
-          </S.ImageContainer>
-          {film.opening_crawl && <Text>Opening Crawl: {film.opening_crawl}</Text>}
+            </S.ImageContainer>
+          }
+          {film.opening_crawl && <Text>{film.opening_crawl}</Text>}
           {film.director && <Text>Director: {film.director}</Text>}
           {film.producer && <Text>Producer: {film.producer}</Text>}
-          {film.release_date && <Text>Release Date: {film.release_date}</Text>}
+          {film.release_date && <Text>Release Date: {formatDate(film.release_date)}</Text>}
           <Button onClick={() => router.push('/')}>Voltar para a home</Button>
         </>
       );
@@ -50,7 +67,7 @@ const FilmDetailsPage = () => {
         <Text variant="subheading" weight="bold" align="center">
           Detalhes do Filme:
         </Text>
-          <S.InfoWrapper>{renderFilmInfo()}</S.InfoWrapper>
+        <S.InfoWrapper>{renderFilmInfo()}</S.InfoWrapper>
       </Container>
     </>
   );

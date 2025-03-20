@@ -11,15 +11,6 @@ const GlobalStyles = createGlobalStyle`
         line-height: 1.5;
     }
 
-    html{
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-    }
-
-    *:focus{
-        outline-offset: 3px;
-    }
-
     body {
         background-color: ${({ theme }) => theme.colors.background};
         color: ${({ theme }) => theme.colors.text};
