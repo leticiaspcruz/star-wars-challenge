@@ -4,7 +4,7 @@ export const FooterContainer = styled.footer`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.navbar};
   color: ${({ theme }) => theme.colors.secondary};
-  padding: 10px 0;
+  padding: ${({ theme }) => theme.sizes.md} 0;
   text-align: center;
   z-index: 1000;
 `;
@@ -15,8 +15,8 @@ export const SocialIconsContainer = styled.div`
 
 export const SocialIcon = styled.a`
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 24px;
-  margin: 0 10px;
+  font-size: ${({ theme }) => theme.fontSizes.l};;
+  margin: 0  ${({ theme }) => theme.sizes.md};
   text-decoration: none;
 
   &:hover {
@@ -35,7 +35,8 @@ export const CopyRightLink = styled.a`
 export const CopyRightText = styled.p`
   color: ${({ theme }) => theme.colors.primary};
   text-align: center;
-    font-family: ${({ theme }) => theme.fontFamily.primary};
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 
   &:hover {
     color: ${({ theme }) => theme.colors.secondary};
