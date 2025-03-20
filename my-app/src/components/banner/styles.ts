@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mediaQuery } from '@/utils/getScreenSize';
 
 export  const BannerContainer = styled.div`
   width: 100%;
@@ -19,10 +20,14 @@ export const BannerImage = styled.img`
 export const BannerText = styled.div`
     position: absolute;
     top: 50%;
-    left: 10%;
+    left: 20%;
     transform: translate(-50%, -50%);
     font-size: ${({ theme }) => theme.fontSizes.md};
     font-weight: ${({ theme }) => theme.fontWeights.bold};
     color: ${({ theme }) => theme.colors.primary};
     font-family: ${({ theme }) => theme.fontFamily.primary};
+
+ ${mediaQuery('tablet-max')} {
+    left: 40%;
+  }
 `;
