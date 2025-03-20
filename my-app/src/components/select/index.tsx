@@ -1,5 +1,5 @@
 import React from 'react';
-
+import * as S from './styles';
 interface SelectProps {
   id: string;
   name: string;
@@ -10,23 +10,22 @@ interface SelectProps {
 };
 
 const Select = ({ id, name, label, value, options, onChange }: SelectProps) => (
-  <div className="flex flex-col gap-1">
-    <label htmlFor={id}>{label}</label>
-    <select
-      id={id}
-      name={name}
-      value={value}
-      onChange={onChange}
-      className="border p-2 rounded"
-    >
-      <option value="">Todos</option>
-      {options.map(option => (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      ))}
-    </select>
-  </div>
+    <S.Wrapper>
+      <label htmlFor={id}>{label}:</label>
+      <S.SelectWrapper
+        id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+      >
+        <S.OptionWrapper value="">Todos</S.OptionWrapper>
+        {options.map(option => (
+          <S.OptionWrapper key={option} value={option}>
+            {option}
+          </S.OptionWrapper>
+        ))}
+      </S.SelectWrapper>
+    </S.Wrapper>
 );
 
 export default Select;

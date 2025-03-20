@@ -5,7 +5,7 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: ${({ theme }) => theme.sizes.xxl} auto;
+    margin: ${({ theme }) => theme.sizes.md};
     gap: ${({ theme }) => theme.sizes.sm};
 `;
 
@@ -19,12 +19,13 @@ export const Search = styled.input`
 export const SearchContainer = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
   border: 1px ${({ theme }) => theme.colors.text} solid !important;
   border-radius: 16px;
   padding: ${({ theme }) => theme.sizes.sm};
   font-family: ${({ theme }) => theme.fontFamily.primary};
   width: 50%;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const IconWrapper = styled.div`

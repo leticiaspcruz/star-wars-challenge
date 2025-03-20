@@ -1,7 +1,6 @@
 
 import { ChangeEvent, useState, useEffect } from 'react';
 import { useDebounce } from 'use-debounce';
-import { Text } from '@/components';
 import { FiSearch as SearchIcon } from 'react-icons/fi';
 import * as S from './styles';
 interface SearchInputProps {
@@ -18,14 +17,11 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch, placeholder }) => {
   };
 
   useEffect(() => {
-    if (debouncedValue) {
-      onSearch(debouncedValue);
-    }
+    onSearch(debouncedValue);
   }, [debouncedValue, onSearch]);
-
+  
   return (
     <S.Container>
-      <Text>Faça sua pesquisa:</Text>
       <S.SearchContainer>
         <S.Search
           type="text"

@@ -2,6 +2,7 @@ export const darkTheme = {
   colors: {
     primary: '#ffc048',
     secondary: '#ffdd59',
+    tertiary: '#de7d2f',
     background: '#1d1d1d',
     navbar: '#232323',
     card: '#2b2b2b',

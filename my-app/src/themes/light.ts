@@ -2,6 +2,7 @@ export const lightTheme = {
     colors: {
       primary: '#ffc048',
       secondary: '#ffdd59',
+      tertiary: '#de7d2f',
       background: '#f5f6fa',
       navbar: '#232323',
       card: '#f5f6fa',

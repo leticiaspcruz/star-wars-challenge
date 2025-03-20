@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { Character } from '@/interfaces/swapi';
 import { Select } from '@/components';
-
+import * as S from './styles';
 interface CharacterFiltersProps {
   onChangeFilters: (filters: Partial<Character>) => void;
   currentFilters: Partial<Character>;
@@ -35,32 +35,33 @@ const CharacterFilters = ({ onChangeFilters, currentFilters, characters }: Chara
   ];
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      {filterFields.map(field => (
-        <Select
-          key={field.key}
-          id={field.key}
-          name={field.key}
-          label={field.label}
-          value={formik.values[field.key] || ''}
-          options={getUniqueValues(field.key)}
-          onChange={formik.handleChange}
-        />
-      ))}
-
-      <div>
-        <button type="submit">
-          Aplicar Filtros
-        </button>
-        <button
-          type="button"
-          onClick={handleReset}
-        >
-          Limpar Filtros
-        </button>
-      </div>
-    </form>
-  );
+      <S.Container>
+      <S.FormContainer onSubmit={formik.handleSubmit}>
+          {filterFields.map(field => (
+            <Select
+              key={field.key}
+              id={field.key}
+              name={field.key}
+              label={field.label}
+              value={formik.values[field.key] || ''}
+              options={getUniqueValues(field.key)}
+              onChange={formik.handleChange}
+            />
+          ))}
+          </S.FormContainer>
+          <S.Wrapper>
+          <S.FilterButton type="submit">
+            Aplicar Filtros
+          </S.FilterButton>
+          <S.FilterButton
+            type="button"
+            onClick={handleReset}
+          >
+            Limpar Filtros
+          </S.FilterButton>
+        </S.Wrapper>
+      </S.Container>
+    );
 };
 
 export default CharacterFilters;
