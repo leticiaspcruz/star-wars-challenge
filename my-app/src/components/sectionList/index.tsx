@@ -3,13 +3,8 @@ import { Pagination, Text, Card, Loader } from '@/components';
 import { Character, Planet } from '@/interfaces/swapi';
 import * as S from './styles';
 
-interface Item extends Character, Planet {
-  name: string;
-  url: string;
-}
-
 interface SectionListProps {
-  items: Item[];
+  items: Character[] | Planet[];
   isLoading: boolean;
   isError: string | boolean;
   currentPage: number;
@@ -38,12 +33,12 @@ const SectionList: React.FC<SectionListProps> = ({
     favorites: 'meus favoritos',
   };
 
+  if(isLoading) return <Loader />;
+  if(isError) return <Text>Ops! Ocorreu um erro, tente novamente mais tarde.</Text>
+
   return (
       <S.Container>
         {useTitle && <Text weight="bold" variant='subheading'>{titles[itemType]}</Text>}
-
-        {isLoading && <Loader />}
-        {isError && <Text>{typeof isError === 'string' ? isError : 'Ocorreu um erro.'}</Text>}
 
         <S.CardList>
           {items.length > 0 && !isLoading && !isError ? (
@@ -54,6 +49,7 @@ const SectionList: React.FC<SectionListProps> = ({
             !isLoading && <Text>Ops! Não existe nada em {titles[itemType]}.</Text>
           )}
         </S.CardList>
+        
         {usePagination && 
           <Pagination
             currentPage={currentPage}
