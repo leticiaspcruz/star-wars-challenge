@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './styles';
 
 interface ButtonProps {
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | 'fullSize';
   onClick?: () => void;
   disabled?: boolean;
   children: React.ReactNode;

@@ -4,7 +4,7 @@ import { Character, Planet } from '@/interfaces/swapi';
 import * as S from './styles';
 
 interface SectionListProps {
-  items: Character[] | Planet[];
+  items: (Character | Planet)[];  
   isLoading: boolean;
   isError: string | boolean;
   currentPage: number;

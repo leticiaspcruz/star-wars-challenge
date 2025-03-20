@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import Link from 'next/link';
 
 export const InfoWrapper = styled.div`
   display: flex;
@@ -7,5 +8,10 @@ export const InfoWrapper = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.sizes.xxl};
   margin: ${({ theme }) => theme.sizes.xxl};
-  place-items: center; 
+`;
+
+export const PageLink = styled(Link)`
+    color: ${({ theme }) => theme.colors.secondary};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    font-family:  ${({ theme }) => theme.fontFamily.primary};
 `;

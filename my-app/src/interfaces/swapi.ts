@@ -7,7 +7,8 @@ export interface Character {
   birth_year: string;
   gender: string;
   homeworld: string;
-  [key: string]: string;
+  films: string[];
+  url: string;
 }
 
 export interface Planet {
@@ -19,7 +20,7 @@ export interface Planet {
   gravity: string;
   terrain: string;
   population: string;
-  [key: string]: string;
+  url: string;
 }
 
 export interface SwapiResponse<T> {

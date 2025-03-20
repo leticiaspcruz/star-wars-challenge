@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 interface StyleProps {
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | 'fullSize';
 }
 
 export const Button = styled.button<StyleProps>`
@@ -13,6 +13,7 @@ export const Button = styled.button<StyleProps>`
     size === 'small' ? theme.sizes.sm :
     size === 'large' ? theme.sizes.lg :
     theme.sizes.md};
+  width: ${({ size }) => size === 'fullSize' ? '100%' : 'auto'};
   border-radius: 8px;
   border: none;
   cursor: pointer;
