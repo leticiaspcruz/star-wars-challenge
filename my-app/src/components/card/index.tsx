@@ -34,6 +34,11 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
     setIsFavorite(!isFavorite);
   };
 
+  const getId = (item: Character | Planet) => {
+    if(!item) return;
+    return item.url.split('/').filter(Boolean).pop()
+  };
+
   const renderCharacterInfo = (character: Character) => (
     <>
       {character.name && <Text weight="bold">{character.name}</Text>}
@@ -45,6 +50,7 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
           {character.skin_color && <Text>Skin Color: {character.skin_color}</Text>}
           {character.birth_year && <Text>Birth Year: {character.birth_year}</Text>}
           {character.gender && <Text>Gender: {character.gender}</Text>}
+          <S.DetailPageLink href={`/characters/${getId(character)}`}>Ir para página de detalhes</S.DetailPageLink>
         </>
       )}
     </>
@@ -62,6 +68,7 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
           {planet.gravity && <Text>Gravity: {planet.gravity}</Text>}
           {planet.terrain && <Text>Terrain: {planet.terrain}</Text>}
           {planet.population && <Text>Population: {planet.population}</Text>}
+          <S.DetailPageLink href={`/planets/${getId(planet)}`}>Ir para página de planetas</S.DetailPageLink>
         </>
       )}
     </>

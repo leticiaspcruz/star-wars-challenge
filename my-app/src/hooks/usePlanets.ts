@@ -5,46 +5,72 @@ import { Planet } from '@/interfaces/swapi';
 type CacheKey = `${string}-${number}`;
 type CacheValue = { results: Planet[]; count: number };
 
-const usePlanets = (searchTerm: string = '', page: number = 1) => {
+const usePlanets = (searchTerm: string = '', page: number = 1, id?: string) => {
   const [planets, setPlanets] = useState<Planet[]>([]);
+  const [planet, setPlanet] = useState<Planet | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
   const [totalPages, setTotalPages] = useState<number>(1);
 
-  const cache = useRef<Record<CacheKey, CacheValue>>({});
+  const listCache = useRef<Record<CacheKey, CacheValue>>({});
+  const detailCache = useRef<Record<string, Planet>>({});
   const key: CacheKey = `${searchTerm}-${page}`;
 
   const fetchPlanets = useCallback(async () => {
-    if (cache.current[key]) {
-      const cachedData = cache.current[key];
-      setPlanets(cachedData.results);
-      setTotalPages(Math.ceil(cachedData.count / 10));
-      return;
-    }
+    if (id) {
+      if (detailCache.current[id]) {
+        setPlanet(detailCache.current[id]);
+        return;
+      }
 
-    setIsLoading(true);
-    setError('');
+      setIsLoading(true);
+      setError('');
 
-    try {
-      const data = await getPlanets(searchTerm, page);
-      cache.current[key] = data;
-      setPlanets(data.results);
-      setTotalPages(Math.ceil(data.count / 10));
-    } catch (error) {
-      console.error('Erro ao buscar dados:', error);
-      setError('Erro ao buscar dados.');
-    } finally {
-      setTimeout(() => {
+      try {
+        const response = await fetch(`https://swapi.dev/api/planets/${id}/`);
+        if (!response.ok) throw new Error('Erro ao buscar planeta');
+        const data: Planet = await response.json();
+        detailCache.current[id] = data;
+        setPlanet(data);
+      } catch (err) {
+        console.error('Erro ao buscar planeta:', err);
+        setError('Erro ao buscar planeta.');
+      } finally {
         setIsLoading(false);
-      }, 1000);
+      }
+    } else {
+      if (listCache.current[key]) {
+        const cachedData = listCache.current[key];
+        setPlanets(cachedData.results);
+        setTotalPages(Math.ceil(cachedData.count / 10));
+        return;
+      }
+
+      setIsLoading(true);
+      setError('');
+
+      try {
+        const data = await getPlanets(searchTerm, page);
+        listCache.current[key] = data;
+
+        setPlanets(data.results);
+        setTotalPages(Math.ceil(data.count / 10));
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+        setError('Erro ao buscar dados.');
+      } finally {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 500);
+      }
     }
-  }, [searchTerm, page, key]);
+  }, [searchTerm, page, key, id]);
 
   useEffect(() => {
     fetchPlanets();
   }, [fetchPlanets]);
 
-  return { planets, isLoading, error, totalPages };
+  return { planets, planet, isLoading, error, totalPages };
 };
 
 export default usePlanets;

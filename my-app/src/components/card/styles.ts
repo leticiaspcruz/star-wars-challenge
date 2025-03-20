@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { FaRebel as RebelIcon } from "react-icons/fa6";
+import Link from 'next/link';
 
 interface StyleProps {
   isFavorite?: boolean;
@@ -33,4 +34,10 @@ export const FavoriteIcon = styled(RebelIcon)<StyleProps>`
   color: ${({ isFavorite }) => (isFavorite ? 'red' : 'white')};
   font-size: 1.5rem;
   transition: color 0.3s ease;
+`;
+
+export const DetailPageLink = styled(Link)`
+    color: ${({ theme }) => theme.colors.secondary};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    font-family:  ${({ theme }) => theme.fontFamily.primary};
 `;
