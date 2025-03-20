@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useCharacters } from '@/hooks';
-import { SearchInput, SectionList, Breadcrumb, Container } from '@/components';
+import { SearchInput, SectionList, Breadcrumb, Container, Banner } from '@/components';
+import BannerCharacters from '@/assets/characters-banner.jpg';
 
 export default function CharactersPage() {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -22,6 +23,12 @@ export default function CharactersPage() {
   ]
 
   return (
+   <>
+      <Banner
+      imageUrl={BannerCharacters}
+      altText="Personagens"
+      text="Personagens"
+      />
       <Container>
         <Breadcrumb items={breadcrumbItems} />
         <SearchInput onSearch={handleSearch} placeholder="Buscar personagem..." />
@@ -33,7 +40,9 @@ export default function CharactersPage() {
           totalPages={characterTotalPages}
           onPageChange={handlePageChange}
           itemType='character'
+          useTitle={false}
         />
       </Container>
+   </>
   );
 }

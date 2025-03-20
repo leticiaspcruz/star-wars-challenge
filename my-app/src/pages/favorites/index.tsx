@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { SectionList, Breadcrumb, Container } from '@/components';
+import { SectionList, Breadcrumb, Container, Banner } from '@/components';
 import { Character, Planet } from '@/interfaces/swapi';
+import BannerFavorites from '@/assets/favorites-banner.jpg';
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState<(Character | Planet)[]>([]);
@@ -16,6 +17,12 @@ export default function Favorites() {
   ]
 
   return (
+   <>
+    <Banner
+    imageUrl={BannerFavorites}
+    altText="Meus favoritos"
+    text="Meus favoritos"
+  />
     <Container>
       <Breadcrumb items={breadcrumbItems} />
       <SectionList
@@ -26,9 +33,10 @@ export default function Favorites() {
         totalPages={1}
         onPageChange={() => {}}
         itemType="favorites"
-        useTitle={true}
         usePagination={false}
+        useTitle={false}
       />
     </Container>
+   </>
   );
 }

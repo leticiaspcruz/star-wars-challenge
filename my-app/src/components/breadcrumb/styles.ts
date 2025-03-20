@@ -6,6 +6,7 @@ export const BreadcrumbContainer = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.sm};
   color: ${({ theme }) => theme.colors.primary};
   font-family: ${({ theme }) => theme.fontFamily.primary};
+  margin: ${({ theme }) => `${theme.sizes.xxl}`};
 `;
 
 export const BreadcrumbItem = styled.span`

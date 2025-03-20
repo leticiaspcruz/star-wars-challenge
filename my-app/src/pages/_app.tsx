@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app'
 import GlobalStyles from '@/themes/globalStyles';
 import { Instrument_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/providers/ThemeContext';
-import { NavBar } from '@/components';
+import { NavBar, Footer } from '@/components';
 
 const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
@@ -17,6 +17,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <GlobalStyles />
         <NavBar />
         <Component {...pageProps} />
+        <Footer />
       </div>
     </ThemeProvider>
   );

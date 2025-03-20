@@ -10,3 +10,5 @@ export { default as Container } from './container';
 export { default as Button } from './button';
 export { default as Card } from './card';
 export { default as Loader} from './loader';
+export { default as Footer } from './footer';
+export { default as Banner } from './banner';

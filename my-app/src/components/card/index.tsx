@@ -84,7 +84,7 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
     <S.CardContainer className="card">
       <S.FavoriteWrapper>
         <Button onClick={toggleFavorite}>
-          {isFavorite ? '❤️' : '🤍'}
+        <S.FavoriteIcon isFavorite={isFavorite} />
         </Button>
       </S.FavoriteWrapper>
       <S.InfoWrapper>

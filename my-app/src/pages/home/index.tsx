@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useCharacters } from '@/hooks';
-import { SearchInput, SectionList, Container } from '@/components';
+import { SearchInput, SectionList, Container, Banner } from '@/components';
+import BannerHome from '@/assets/home-banner.jpg';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -17,7 +18,13 @@ export default function Home() {
     setCharacterPage(newPage);
   };
 
-  return (
+  return ( 
+    <>
+    <Banner
+      imageUrl={BannerHome}
+      altText="Star Wars Challenge"
+      text="Bem-vindo(a) ao Star Wars Challenge!"
+    />
     <Container>
       <SearchInput onSearch={handleSearch} placeholder="Buscar personagem ou planeta" />
         <SectionList 
@@ -31,5 +38,6 @@ export default function Home() {
           useTitle={false}
         />
     </Container>
+    </>
   );
 }

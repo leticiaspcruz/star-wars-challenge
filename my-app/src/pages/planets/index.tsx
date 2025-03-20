@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { SearchInput, SectionList, Breadcrumb, Container } from '@/components';
+import { SearchInput, SectionList, Breadcrumb, Container, Banner } from '@/components';
 import { usePlanets } from '@/hooks';
+import BannerPlanets from '@/assets/planets.jpg';
 
 export default function PlanetsPage() {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -22,6 +23,12 @@ export default function PlanetsPage() {
   ]
 
   return (
+    <>
+      <Banner
+        imageUrl={BannerPlanets}
+        altText="Planetas"
+        text="Planetas"
+      />
       <Container>
         <Breadcrumb items={breadcrumbItems} />
         <SearchInput onSearch={handleSearch} placeholder="Buscar planeta..." />
@@ -33,7 +40,9 @@ export default function PlanetsPage() {
           totalPages={planetTotalPages}
           onPageChange={handlePageChange}
           itemType='planet'
+          useTitle={false}
         />
       </Container>
+    </>
   );
 }

@@ -1,4 +1,9 @@
 import { styled } from 'styled-components';
+import { FaRebel as RebelIcon } from "react-icons/fa6";
+
+interface StyleProps {
+  isFavorite?: boolean;
+}
 
 export const CardContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.card};
@@ -22,4 +27,10 @@ export const InfoWrapper = styled.div`
 export const FavoriteWrapper = styled.div`
     display: flex;
     flex-direction: row-reverse;
+`;
+
+export const FavoriteIcon = styled(RebelIcon)<StyleProps>`
+  color: ${({ isFavorite }) => (isFavorite ? 'red' : 'white')};
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 `;
