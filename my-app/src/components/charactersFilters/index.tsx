@@ -50,7 +50,7 @@ const CharacterFilters = ({ onChangeFilters, currentFilters, characters }: Chara
           ))}
           </S.FormContainer>
           <S.Wrapper>
-          <S.FilterButton type="submit">
+          <S.FilterButton type="submit" onClick={() => formik.handleSubmit()}>
             Aplicar Filtros
           </S.FilterButton>
           <S.FilterButton

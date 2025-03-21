@@ -51,8 +51,8 @@ const PlanetsFilters = ({ onChangeFilters, currentFilters, planets }: PlanetFilt
           ))}
         </S.FormContainer>
         <S.Wrapper>
-        <S.FilterButton type="submit">
-          Aplicar Filtros
+        <S.FilterButton type="submit" onClick={() => formik.handleSubmit()}>
+           Aplicar Filtros
         </S.FilterButton>
         <S.FilterButton
           type="button"
