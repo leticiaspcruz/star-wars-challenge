@@ -1,16 +1,11 @@
 import { useRouter } from 'next/router';
 import { useFilms } from '@/hooks';
 import { Button, Text, Container, Loader, Banner } from '@/components';
-import BannerHome from '@/assets/home-banner.jpg';
+import { BannerHome } from '@/assets';
 import Image, { StaticImageData } from 'next/image';
 import { formatDate } from '@/utils/formatDate';
-import FilmOne from '@/assets/filme1.jpg';
-import FilmTwo from '@/assets/filme2.jpg';
-import FilmThree from '@/assets/filme3.jpg';
-import FilmFour from '@/assets/filme4.jpeg';
-import FilmFive from '@/assets/filme5.jpg';
-import FilmSix from '@/assets/filme6.jpg';
-import * as S from './styles';
+import { FilmOne, FilmTwo, FilmThree, FilmFour, FilmFive, FilmSix } from '@/assets';
+import * as S from '@/shared/pagesStyles';
 
 const filmImages: { [key: string]: StaticImageData } = {
   '1': FilmOne,

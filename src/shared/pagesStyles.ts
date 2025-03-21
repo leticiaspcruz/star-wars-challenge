@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import Link from 'next/link';
 
 export const InfoWrapper = styled.div`
   display: flex;
@@ -6,9 +7,7 @@ export const InfoWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: ${({ theme }) => theme.sizes.xxl};
-  padding: ${({ theme }) => theme.sizes.xxl};
   margin: ${({ theme }) => theme.sizes.xxl};
-  place-items: center; 
 `;
 
 export const ImageContainer = styled.div`
@@ -25,4 +24,10 @@ export const CardContainer = styled.div`
   height: auto;
   border: none;
   box-sizing: border-box;
+`;
+
+export const PageLink = styled(Link)`
+    color: ${({ theme }) => theme.colors.secondary};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    font-family:  ${({ theme }) => theme.fontFamily.primary};
 `;

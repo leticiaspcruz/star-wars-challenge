@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { SectionList, Breadcrumb, Container, Banner } from '@/components';
 import { Character, Planet } from '@/interfaces/swapi';
-import BannerFavorites from '@/assets/favorites-banner.jpg';
+import { BannerFavorites } from '@/assets';
 
-export default function Favorites() {
+const FavoritesPage = () => {
   const [favorites, setFavorites] = useState<(Character | Planet)[]>([]);
 
   useEffect(() => {
@@ -40,3 +40,5 @@ export default function Favorites() {
    </>
   );
 }
+
+export default FavoritesPage;

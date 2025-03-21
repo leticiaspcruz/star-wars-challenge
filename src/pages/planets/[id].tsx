@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import { Button, Text, Container, Loader, Banner, Error } from '@/components';
 import { Planet } from '@/interfaces/swapi';
 import { usePlanets } from '@/hooks';
-import BannerPlanets from '@/assets/planets.jpg';
-import * as S from './styles';
+import { BannerPlanets } from '@/assets';
+import * as S from '@/shared/pagesStyles';
 
 const PlanetDetailsPage = () => {
   const router = useRouter();

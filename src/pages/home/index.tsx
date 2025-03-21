@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useCharacters } from '@/hooks';
 import { SearchInput, SectionList, Container, Banner } from '@/components';
-import BannerHome from '@/assets/home-banner.jpg';
+import { BannerHome } from '@/assets';
 
-export default function Home() {
+const Home = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   
   const [characterPage, setCharacterPage] = useState<number>(1);
@@ -41,3 +41,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

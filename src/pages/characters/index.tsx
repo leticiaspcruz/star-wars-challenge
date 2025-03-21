@@ -1,10 +1,10 @@
 import { useState, useMemo } from 'react';
 import { useCharacters } from '@/hooks';
 import { SearchInput, SectionList, Breadcrumb, Container, Banner, CharacterFilters } from '@/components';
-import BannerCharacters from '@/assets/characters-banner.jpg';
+import { BannerCharacters } from '@/assets';
 import { FiltersCharacters } from '@/interfaces/filters';
 
-export default function CharactersPage() {
+const CharactersPage = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [characterPage, setCharacterPage] = useState<number>(1);
   const [filters, setFilters] = useState<FiltersCharacters>({
@@ -87,3 +87,5 @@ export default function CharactersPage() {
     </>
   );
 }
+
+export default CharactersPage;

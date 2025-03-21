@@ -2,9 +2,9 @@ import { useRouter } from 'next/router';
 import useCharacters from '@/hooks/useCharacters';
 import { Button, Text, Container, Loader, Banner, Error } from '@/components';
 import { Character } from '@/interfaces/swapi';
-import BannerCharacters from '@/assets/characters-banner.jpg';
+import { BannerCharacters } from '@/assets';
 import { getIdFromUrl } from '@/utils/getIdFromUrl';
-import * as S from './styles';
+import * as S from '@/shared/pagesStyles';
 
 const CharacterDetailsPage = () => {
   const router = useRouter();

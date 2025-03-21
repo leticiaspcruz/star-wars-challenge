@@ -1,0 +1,11 @@
+export { default as FilmOne } from './filme1.jpg';
+export { default as FilmTwo } from './filme2.jpg';
+export { default as FilmThree } from './filme3.jpg';
+export { default as FilmFour } from './filme4.jpg';
+export { default as FilmFive } from './filme5.jpg';
+export { default as FilmSix } from './filme6.jpg';
+export { default as BannerHome } from './home-banner.jpg';
+export { default as BannerFavorites } from './favorites-banner.jpg';
+export { default as BannerCharacters } from './characters-banner.jpg';
+export { default as BannerPlanets} from './planets.jpg';
+export { default as LogoSvg} from './star_wars_logo.svg';

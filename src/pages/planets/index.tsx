@@ -1,10 +1,10 @@
 import { useState, useMemo } from 'react';
 import { SearchInput, SectionList, Breadcrumb, Container, Banner, PlanetsFilters } from '@/components';
 import { usePlanets } from '@/hooks';
-import BannerPlanets from '@/assets/planets.jpg';
+import { BannerPlanets } from '@/assets';
 import { Planet } from '@/interfaces/swapi';
 
-export default function PlanetsPage() {
+const PlanetsPage = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [planetPage, setPlanetPage] = useState<number>(1);
   const [filters, setFilters] = useState<Partial<Planet>>({});
@@ -83,3 +83,5 @@ export default function PlanetsPage() {
     </>
   );
 }
+
+export default PlanetsPage;
