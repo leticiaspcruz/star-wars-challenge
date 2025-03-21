@@ -3,7 +3,7 @@ export const lightTheme = {
       primary: '#ffc048',
       secondary: '#ffdd59',
       tertiary: '#de7d2f',
-      background: '#f5f6fa',
+      background: '#fff9cc',
       navbar: '#232323',
       card: '#f5f6fa',
       text: '#1d1d1d',

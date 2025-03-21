@@ -10,6 +10,10 @@ export const CardList = styled.div`
     justify-content: center;
   }
 
+  .slick-track {
+    margin: ${({ theme }) => theme.sizes.xl};
+  }
+
 `;
 
 export const CardItem = styled.div`
