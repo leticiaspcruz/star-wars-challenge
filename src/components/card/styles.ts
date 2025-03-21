@@ -3,7 +3,7 @@ import { FaRebel as RebelIcon } from "react-icons/fa6";
 import Link from 'next/link';
 
 interface StyleProps {
-  isFavorite?: boolean;
+  $isFavorite?: boolean;
 }
 
 export const CardContainer = styled.div`
@@ -31,7 +31,7 @@ export const FavoriteWrapper = styled.div`
 `;
 
 export const FavoriteIcon = styled(RebelIcon)<StyleProps>`
-  color: ${({ isFavorite }) => (isFavorite ? 'red' : 'white')};
+  color: ${({ $isFavorite }) => ($isFavorite ? 'red' : 'white')};
   font-size: 1.5rem;
   transition: color 0.3s ease;
 `;

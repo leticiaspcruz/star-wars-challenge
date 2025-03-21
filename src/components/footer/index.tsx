@@ -1,3 +1,4 @@
+'use client';
 import React from 'react'
 import { SOCIAL_MEDIA } from '@/constants/socialMedia';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';

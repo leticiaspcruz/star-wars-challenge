@@ -7,8 +7,10 @@ const FavoritesPage = () => {
   const [favorites, setFavorites] = useState<(Character | Planet)[]>([]);
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    setFavorites(storedFavorites);
+    if (typeof window !== 'undefined') {
+      const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+      setFavorites(storedFavorites);
+    }
   }, []);
 
   const breadcrumbItems = [

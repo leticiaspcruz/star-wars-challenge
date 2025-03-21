@@ -9,25 +9,31 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ type, data }) => {
   const [showMore, setShowMore] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-    const isAlreadyFavorite = favorites.some((favorite: Character | Planet) => favorite.name === data.name);
-    setIsFavorite(isAlreadyFavorite);
+    if (typeof window !== 'undefined') {
+      const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+      const isAlreadyFavorite = favorites.some((favorite: Character | Planet) => favorite.name === data.name);
+      setIsFavorite(isAlreadyFavorite);
+    }
   }, [data]);
 
   const toggleShowMore = () => setShowMore((prev) => !prev);
 
   const toggleFavorite = () => {
-    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const favorites = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('favorites') || '[]') : null;
 
     if (isFavorite) {
       const updatedFavorites = favorites.filter((favorite: Character | Planet) => favorite.name !== data.name);
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      }
     } else {
       favorites.push(data);
-      localStorage.setItem('favorites', JSON.stringify(favorites));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      }
     }
 
     setIsFavorite(!isFavorite);
@@ -89,9 +95,11 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
   return (
     <S.CardContainer className="card">
       <S.FavoriteWrapper>
-        <Button onClick={toggleFavorite}>
-        <S.FavoriteIcon isFavorite={isFavorite} />
-        </Button>
+        {isFavorite !== undefined && (
+          <Button onClick={toggleFavorite}>
+            <S.FavoriteIcon $isFavorite={isFavorite} />
+          </Button>
+        )}
       </S.FavoriteWrapper>
       <S.InfoWrapper>
         <div className="card-content">
