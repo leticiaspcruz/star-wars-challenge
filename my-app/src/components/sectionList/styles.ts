@@ -1,11 +1,15 @@
 import { styled } from 'styled-components';
+import { mediaQuery } from '@/utils/getScreenSize';
 
 export const CardList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: ${({ theme }) => theme.sizes.md};
   margin: ${({ theme }) => theme.sizes.md};
-  place-items: center; 
+
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+
 `;
 
 export const CardItem = styled.div`
@@ -22,5 +26,9 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: ${({ theme }) => theme.sizes.sm};
-  margin: ${({ theme }) => theme.sizes.sm} auto;
+  margin: ${({ theme }) => theme.sizes.super};
+
+  ${mediaQuery('tablet-max')} {
+    margin: ${({ theme }) => theme.sizes.xl};
+  }
 `;

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Pagination, Text, Card, Loader } from '@/components';
 import { Character, Planet } from '@/interfaces/swapi';
+import Slider from 'react-slick';
 import * as S from './styles';
 
 interface SectionListProps {
-  items: (Character | Planet)[];  
+  items: (Character | Planet)[];
   isLoading: boolean;
   isError: string | boolean;
   currentPage: number;
@@ -33,30 +34,55 @@ const SectionList: React.FC<SectionListProps> = ({
     favorites: 'meus favoritos',
   };
 
-  if(isLoading) return <Loader />;
-  if(isError) return <Text>Ops! Ocorreu um erro, tente novamente mais tarde.</Text>;
+  if (isLoading) return <Loader />;
+  if (isError) return <Text>Ops! Ocorreu um erro, tente novamente mais tarde.</Text>;
+
+  const carouselSettings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <S.Container>
-      {useTitle && <Text weight="bold" variant='subheading'>{titles[itemType]}</Text>}
+      {useTitle && <Text weight="bold" variant="subheading">{titles[itemType]}</Text>}
 
       <S.CardList>
         {items.length > 0 && !isLoading && !isError ? (
-          items.map((item, index) => (
-            <Card key={index} data={item} type={itemType} />
-          ))
+          <Slider {...carouselSettings}>
+            {items.map((item, index) => (
+              <div key={index}>
+                <Card data={item} type={itemType} />
+              </div>
+            ))}
+          </Slider>
         ) : (
           !isLoading && <Text>Ops! Não existe nada em {titles[itemType]}.</Text>
         )}
       </S.CardList>
 
-      {usePagination && 
+      {usePagination && (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={onPageChange}
         />
-      }
+      )}
     </S.Container>
   );
 };
