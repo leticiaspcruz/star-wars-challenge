@@ -17,13 +17,26 @@ const Home = () => {
     setPlanetPage(1);
   };
 
-  const handleCharactersPageChange = (newPage: number) => {
-    setCharacterPage(newPage);
+  const handlePageChange = (newPage: number) => {
+    if (characterPage) {
+      setCharacterPage(newPage);
+    }
+
+    if (planetPage) {
+      setPlanetPage(newPage);
+    }
   };
 
-  const handlePlanetsPageChange = (newPage: number) => {
-    setPlanetPage(newPage);
-  };
+  const isLoading = isCharactersLoading || isPlanetsLoading;
+  const isError = charactersError || planetsError;
+
+  const combinedArray = [
+    ...characters,
+    ...planets
+  ]
+
+  const currentPage = characterPage || planetPage;
+  const totalPages = characterTotalPages +  planetTotalPages;
 
   return ( 
     <>
@@ -35,29 +48,15 @@ const Home = () => {
       <Container>
         <SearchInput onSearch={handleSearch} placeholder="Find characters or planets" />
         
-        {characters && 
             <SectionList 
-            items={characters}
-            isLoading={isCharactersLoading}
-            isError={charactersError}
-            currentPage={characterPage}
-            totalPages={characterTotalPages}
-            onPageChange={handleCharactersPageChange}
-            itemType='character'
+            items={combinedArray}
+            isLoading={isLoading}
+            isError={isError}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            itemType='mixed'
             />
-        }
-
-        {planets && 
-          <SectionList 
-          items={planets}
-          isLoading={isPlanetsLoading}
-          isError={planetsError}
-          currentPage={planetPage}
-          totalPages={planetTotalPages}
-          onPageChange={handlePlanetsPageChange}
-          itemType='planet'
-          />
-        }
       </Container>
     </>
   );

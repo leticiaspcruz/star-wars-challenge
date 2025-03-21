@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Text, Button } from '@/components';
 import { Character, Planet } from '@/interfaces/swapi';
 import * as S from './styles';
+
 interface CardProps {
-  type: 'character' | 'planet' | 'favorites';
+  type: 'character' | 'planet' | 'favorites' | 'mixed';
   data: Character | Planet;
 };
 
@@ -40,8 +41,8 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
   };
 
   const getId = (item: Character | Planet) => {
-    if(!item) return;
-    return item.url.split('/').filter(Boolean).pop()
+    if (!item) return;
+    return item.url.split('/').filter(Boolean).pop();
   };
 
   const renderCharacterInfo = (character: Character) => (
@@ -79,12 +80,24 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
     </>
   );
 
+  const renderMixedInfo = (item: Character | Planet) => {
+    if ('height' in item) {
+      return renderCharacterInfo(item as Character);
+    } else {
+      return renderPlanetInfo(item as Planet);
+    }
+  };
+
   const renderContent = () => {
     if (type === 'favorites') {
       const isCharacter = (data as Character).height !== undefined;
       return isCharacter
         ? renderCharacterInfo(data as Character)
         : renderPlanetInfo(data as Planet);
+    }
+
+    if (type === 'mixed') {
+      return renderMixedInfo(data); 
     }
 
     return type === 'character'

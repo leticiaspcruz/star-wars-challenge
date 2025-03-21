@@ -12,7 +12,7 @@ interface SectionListProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  itemType: 'character' | 'planet' | 'favorites';
+  itemType: 'character' | 'planet' | 'favorites' | 'mixed';
   useTitle?: boolean;
   usePagination?: boolean;
 }
@@ -71,7 +71,7 @@ const SectionList: React.FC<SectionListProps> = ({
 
   return (
     <S.Container>
-      {useTitle && 
+      {useTitle &&
         <Text weight="bold" variant="subheading" align='center'>
           {titles[itemType]}
         </Text>
@@ -97,7 +97,7 @@ const SectionList: React.FC<SectionListProps> = ({
         )}
       </S.CardList>
 
-      {usePagination && (
+      {usePagination && items.length > 0 && (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
