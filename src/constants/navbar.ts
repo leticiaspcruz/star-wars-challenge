@@ -1,6 +1,6 @@
 export const NAV_LINKS = [
     { name: 'home', href: '/' },
-    { name: 'personagens', href: '/characters' },
-    { name: 'planetas', href: '/planets' },
-    { name: 'meus favoritos', href: '/favorites' },
+    { name: 'characters', href: '/characters' },
+    { name: 'planets', href: '/planets' },
+    { name: 'my favorites', href: '/favorites' },
 ];

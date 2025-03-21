@@ -16,8 +16,8 @@ const getPlanets = async (search: string = '', page: number = 1): Promise<SwapiR
 
     return data;
   } catch (error) {
-    console.error('Erro ao buscar planetas:', error);
-    throw new Error('Erro ao buscar planetas');
+    console.error('Error fetching planets:', error);
+    throw new Error('Error fetching planets');
   }
 };
 

@@ -29,10 +29,10 @@ const PlanetsFilters = ({ onChangeFilters, currentFilters, planets }: PlanetFilt
   };
 
   const filterFields: { key: keyof Planet; label: string }[] = [
-    { key: 'name', label: 'Nome' },
-    { key: 'climate', label: 'Clima' },
-    { key: 'terrain', label: 'Terreno' },
-    { key: 'population', label: 'População' },
+    { key: 'name', label: 'Name' },
+    { key: 'climate', label: 'Climate' },
+    { key: 'terrain', label: 'Terrain' },
+    { key: 'population', label: 'Population' },
   ];
 
   return (
@@ -52,13 +52,13 @@ const PlanetsFilters = ({ onChangeFilters, currentFilters, planets }: PlanetFilt
         </S.FormContainer>
         <S.Wrapper>
         <S.FilterButton type="submit" onClick={() => formik.handleSubmit()}>
-           Aplicar Filtros
+           Apply filter
         </S.FilterButton>
         <S.FilterButton
           type="button"
           onClick={handleReset}
         >
-          Limpar Filtros
+          Reset filter
         </S.FilterButton>
       </S.Wrapper>
     </S.Container>

@@ -28,13 +28,13 @@ const usePlanets = (searchTerm: string = '', page: number = 1, id?: string) => {
 
       try {
         const response = await fetch(`https://swapi.dev/api/planets/${id}/`);
-        if (!response.ok) throw new Error('Erro ao buscar planeta');
+        if (!response.ok) throw new Error('Error fetching planet');
         const data: Planet = await response.json();
         detailCache.current[id] = data;
         setPlanet(data);
       } catch (err) {
-        console.error('Erro ao buscar planeta:', err);
-        setError('Erro ao buscar planeta.');
+        console.error('Error fetching planets:', err);
+        setError('Error fetching planets.');
       } finally {
         setIsLoading(false);
       }
@@ -56,8 +56,8 @@ const usePlanets = (searchTerm: string = '', page: number = 1, id?: string) => {
         setPlanets(data.results);
         setTotalPages(Math.ceil(data.count / 10));
       } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-        setError('Erro ao buscar dados.');
+        console.error('Error fetching planets:', error);
+        setError('Error fetching planets.');
       } finally {
         setTimeout(() => {
           setIsLoading(false);

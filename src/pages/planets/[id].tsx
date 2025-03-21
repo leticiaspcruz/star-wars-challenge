@@ -25,21 +25,21 @@ const PlanetDetailsPage = () => {
      );
 
   if (isLoading) return <Loader />;
-  if (error) return <Error errorText='Ops! Ocorreu um erro, tente novamente mais tarde.' />;;
-  if (!planet) return <Text>Planeta não encontrado.</Text>;
+  if (error) return <Error errorText='Oops! An error occurred, please try again later' />;;
+  if (!planet) return <Text>Planet not found.</Text>;
   
   return (
     <>
     <Banner
     imageUrl={BannerPlanets}
-    altText="Detalhe do planeta"
-    text="Detalhe do planeta"
+    altText="Planet details"
+    text="Planet details"
     />
     <Container>
-      <Text variant='subheading' weight='bold' align='center'>Detalhes do Planeta</Text>
+      <Text variant='subheading' weight='bold' align='center'>Planet Details</Text>
       <S.InfoWrapper>
       {renderPlanetInfo(planet)}
-      <Button onClick={() => router.push('/characters')}>Voltar para a lista</Button>
+      <Button onClick={() => router.push('/planets')}>Go back to Planets page</Button>
       </S.InfoWrapper>
     </Container>
     </>

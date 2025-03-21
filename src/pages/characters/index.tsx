@@ -57,15 +57,15 @@ const CharactersPage = () => {
 
   const breadcrumbItems = [
     { name: 'home', href: '/' },
-    { name: 'personagens', href: '/characters' },
+    { name: 'characters', href: '/characters' },
   ];
 
   return (
     <>
-      <Banner imageUrl={BannerCharacters} altText="Personagens" text="Personagens" />
+      <Banner imageUrl={BannerCharacters} altText="Characters" text="Characters" />
       <Container>
         <Breadcrumb items={breadcrumbItems} />
-        <SearchInput onSearch={handleSearch} placeholder="Buscar personagem..." />
+        <SearchInput onSearch={handleSearch} placeholder="Find characters" />
 
         <CharacterFilters 
           onChangeFilters={handleChangeFilters} 

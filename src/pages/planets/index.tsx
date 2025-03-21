@@ -49,19 +49,19 @@ const PlanetsPage = () => {
 
   const breadcrumbItems = [
     { name: 'home', href: '/' },
-    { name: 'planetas', href: '/planets' },
+    { name: 'planets', href: '/planets' },
   ];
 
   return (
     <>
       <Banner
         imageUrl={BannerPlanets}
-        altText="Planetas"
-        text="Planetas"
+        altText="Planets"
+        text="Planets"
       />
       <Container>
         <Breadcrumb items={breadcrumbItems} />
-        <SearchInput onSearch={handleSearch} placeholder="Buscar planeta..." />
+        <SearchInput onSearch={handleSearch} placeholder="Find planet" />
         
         <PlanetsFilters 
           onChangeFilters={handleFilterChange}

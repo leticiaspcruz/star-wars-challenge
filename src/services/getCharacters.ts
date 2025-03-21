@@ -16,8 +16,8 @@ const getCharacters = async (search: string = '', page: number = 1): Promise<Swa
 
     return data;
   } catch (error) {
-    console.error('Erro ao buscar personagens:', error);
-    throw new Error('Erro ao buscar personagens');
+    console.error('Failed to find characters:', error);
+    throw new Error('Failed to find characters');
   }
 };
 

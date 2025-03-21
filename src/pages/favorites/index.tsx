@@ -15,7 +15,7 @@ const FavoritesPage = () => {
 
   const breadcrumbItems = [
     { name: 'home', href: '/' },
-    { name: 'meus favoritos', href: '/favorites' },
+    { name: 'my favorites', href: '/favorites' },
   ]
 
   const isError = !favorites || favorites.length === 0;
@@ -24,8 +24,8 @@ const FavoritesPage = () => {
    <>
     <Banner
     imageUrl={BannerFavorites}
-    altText="Meus favoritos"
-    text="Meus favoritos"
+    altText="My favorites"
+    text="My favorites"
   />
     <Container>
       <Breadcrumb items={breadcrumbItems} />

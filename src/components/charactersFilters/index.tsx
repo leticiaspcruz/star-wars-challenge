@@ -29,9 +29,9 @@ const CharacterFilters = ({ onChangeFilters, currentFilters, characters }: Chara
   };
 
   const filterFields: { key: keyof Character; label: string }[] = [
-    { key: 'name', label: 'Nome' },
-    { key: 'gender', label: 'Gênero' },
-    { key: 'hair_color', label: 'Cor do Cabelo' },
+    { key: 'name', label: 'Name' },
+    { key: 'gender', label: 'Gender' },
+    { key: 'hair_color', label: 'Hair color' },
   ];
 
   return (
@@ -51,13 +51,13 @@ const CharacterFilters = ({ onChangeFilters, currentFilters, characters }: Chara
           </S.FormContainer>
           <S.Wrapper>
           <S.FilterButton type="submit" onClick={() => formik.handleSubmit()}>
-            Aplicar Filtros
+            Apply filter
           </S.FilterButton>
           <S.FilterButton
             type="button"
             onClick={handleReset}
           >
-            Limpar Filtros
+            Reset filter
           </S.FilterButton>
         </S.Wrapper>
       </S.Container>

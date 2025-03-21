@@ -10,8 +10,8 @@ const getFilms = async (): Promise<SwapiResponse<Film>> => {
     const { data } = await api.get<SwapiResponse<Film>>('films/');
     return data;
   } catch (error) {
-    console.error('Erro ao buscar filmes:', error);
-    throw new Error('Erro ao buscar filmes');
+    console.error('Error fetching movies:', error);
+    throw new Error('Error fetching movies');
   }
 };
 
@@ -20,8 +20,8 @@ export const getFilmById = async (id: string): Promise<Film> => {
     const { data } = await api.get<Film>(`films/${id}/`);
     return data;
   } catch (error) {
-    console.error('Erro ao buscar filme:', error);
-    throw new Error('Erro ao buscar filme');
+    console.error('Error fetching movie:', error);
+    throw new Error('Error fetching movie');
   }
 };
 

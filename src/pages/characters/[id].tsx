@@ -22,18 +22,18 @@ const CharacterDetailsPage = () => {
         {character.gender && <Text>Gender: {character.gender}</Text>}
         {character.homeworld && (
           <S.InfoWrapper>
-            <Text weight='bold' align='center'>Planeta de origem:</Text>
+            <Text weight='bold' align='center'>Home Planet:</Text>
             <Button onClick={() => router.push(`/planets/${getIdFromUrl(character.homeworld)}`)}>
-              Ver planeta do personagem
+              See character&apos;s planet
             </Button>
           </S.InfoWrapper>
         )}
         {character.films.length > 0 && (
           <S.InfoWrapper>
-            <Text weight='bold' align='center'>Filmes em que o personagem aparece:</Text>
+            <Text weight='bold' align='center'>Movies in which the character appears:</Text>
             {character.films.map((film: string) => (
                 <Button key={film} size='fullSize' onClick={() => router.push(`/films/${getIdFromUrl(film)}`)}>
-                  Filme {getIdFromUrl(film)}
+                  Movie {getIdFromUrl(film)}
                 </Button>
             ))}
           </S.InfoWrapper>
@@ -42,21 +42,21 @@ const CharacterDetailsPage = () => {
     );
   
   if (isLoading) return <Loader />;
-  if (error) return <Error errorText='Ops! Ocorreu um erro, tente novamente mais tarde.' />;;
-  if (!character) return <Text>Personagem não encontrado.</Text>;
+  if (error) return <Error errorText='Oops! An error occurred, please try again later.' />;;
+  if (!character) return <Text>Character not found.</Text>;
   
   return (
     <>
     <Banner
     imageUrl={BannerCharacters}
-    altText="Detalhes do personagem"
-    text="Detalhes do personagem"
+    altText="Character details"
+    text="Character details"
     />
     <Container>
-      <Text variant='subheading' weight='bold' align='center'>Detalhes do Personagem</Text>
+      <Text variant='subheading' weight='bold' align='center'>Character Details</Text>
       <S.InfoWrapper>
       {renderCharacterInfo(character)}
-      <Button onClick={() => router.push('/characters')}>Voltar para a lista</Button>
+      <Button onClick={() => router.push('/characters')}>Go back to Characters page</Button>
       </S.InfoWrapper>
     </Container>
     </>

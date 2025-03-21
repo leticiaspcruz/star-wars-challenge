@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useFilms } from '@/hooks';
-import { Button, Text, Container, Loader, Banner } from '@/components';
+import { Button, Text, Container, Loader, Banner, Error } from '@/components';
 import { BannerHome } from '@/assets';
 import Image, { StaticImageData } from 'next/image';
 import { formatDate } from '@/utils/formatDate';
@@ -22,7 +22,7 @@ const FilmDetailsPage = () => {
   const { film, isLoading, error } = useFilms(id as string);
 
   if (isLoading) return <Loader />;
-  if (error) return <Text>{error}</Text>;
+  if (error) return <Error errorText='Oops! An error occurred, please try again later.' />;;
 
   const renderFilmInfo = () => {
     if (film) {
@@ -34,7 +34,7 @@ const FilmDetailsPage = () => {
           {selectedImage && <S.ImageContainer>
               <Image
               src={selectedImage}
-              alt="Poster do filme"
+              alt="Film poster"
               width="250"
               height="350"
               loading="lazy"
@@ -55,12 +55,12 @@ const FilmDetailsPage = () => {
     <>
       <Banner
         imageUrl={BannerHome}
-        altText="Detalhes do filme"
-        text="Detalhes do Filme"
+        altText="Film Details"
+        text="Film Details"
       />
       <Container>
         <Text variant="subheading" weight="bold" align="center">
-          Detalhes do Filme:
+          Film Details:
         </Text>
         <S.InfoWrapper>{renderFilmInfo()}</S.InfoWrapper>
       </Container>

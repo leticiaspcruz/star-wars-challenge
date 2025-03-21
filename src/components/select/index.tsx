@@ -18,7 +18,7 @@ const Select = ({ id, name, label, value, options, onChange }: SelectProps) => (
         value={value}
         onChange={onChange}
       >
-        <S.OptionWrapper value="">Todos</S.OptionWrapper>
+        <S.OptionWrapper value="">All</S.OptionWrapper>
         {options.map(option => (
           <S.OptionWrapper key={option} value={option}>
             {option}

@@ -28,13 +28,13 @@ const useCharacters = (searchTerm: string = '', page: number = 1, id?: string) =
 
       try {
         const response = await fetch(`https://swapi.dev/api/people/${id}/`);
-        if (!response.ok) throw new Error('Erro ao buscar personagem');
+        if (!response.ok) throw new Error('Error to find character');
         const data: Character = await response.json();
         detailCache.current[id] = data;
         setCharacter(data);
       } catch (err) {
-        console.error('Erro ao buscar personagem:', err);
-        setError('Erro ao buscar personagem.');
+        console.error('Failed to find character:', err);
+        setError('Failed to find character');
       } finally {
         setIsLoading(false);
       }
@@ -56,8 +56,8 @@ const useCharacters = (searchTerm: string = '', page: number = 1, id?: string) =
         setCharacters(data.results);
         setTotalPages(Math.ceil(data.count / 10));
       } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-        setError('Erro ao buscar dados.');
+        console.error('Error fetching characters:', error);
+        setError('Error fetching characters.');
       } finally {
         setTimeout(() => {
           setIsLoading(false);

@@ -31,9 +31,9 @@ const SectionList: React.FC<SectionListProps> = ({
   const { isClient, isMobileView } = useScreenSize();
 
   const titles: Record<string, string> = {
-    character: 'personagens',
-    planet: 'planetas',
-    favorites: 'meus favoritos',
+    character: 'Characters',
+    planet: 'Planets',
+    favorites: 'Favorites',
   };
 
   const carouselSettings = {
@@ -63,7 +63,7 @@ const SectionList: React.FC<SectionListProps> = ({
     ],
   };
 
-  const errorText = `Ops! Não encontramos nada em ${titles[itemType]}`;
+  const errorText = `Oops! We didn't find anything in ${titles[itemType]}`;
 
   if (isLoading) return <Loader />;
   if (isError) return <Error errorText={errorText} />;
@@ -71,7 +71,11 @@ const SectionList: React.FC<SectionListProps> = ({
 
   return (
     <S.Container>
-      {useTitle && <Text weight="bold" variant="subheading">{titles[itemType]}</Text>}
+      {useTitle && 
+        <Text weight="bold" variant="subheading" align='center'>
+          {titles[itemType]}
+        </Text>
+      }
 
       <S.CardList>
         {items.length > 0 && !isLoading && !isError && (

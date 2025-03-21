@@ -55,7 +55,7 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
           {character.skin_color && <Text>Skin Color: {character.skin_color}</Text>}
           {character.birth_year && <Text>Birth Year: {character.birth_year}</Text>}
           {character.gender && <Text>Gender: {character.gender}</Text>}
-          <S.DetailPageLink href={`/characters/${getId(character)}`}>Ir para página de detalhes</S.DetailPageLink>
+          <S.DetailPageLink href={`/characters/${getId(character)}`}>Go to Details page</S.DetailPageLink>
         </>
       )}
     </>
@@ -73,7 +73,7 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
           {planet.gravity && <Text>Gravity: {planet.gravity}</Text>}
           {planet.terrain && <Text>Terrain: {planet.terrain}</Text>}
           {planet.population && <Text>Population: {planet.population}</Text>}
-          <S.DetailPageLink href={`/planets/${getId(planet)}`}>Ir para página de planetas</S.DetailPageLink>
+          <S.DetailPageLink href={`/planets/${getId(planet)}`}>Go back to Planets page</S.DetailPageLink>
         </>
       )}
     </>
@@ -105,7 +105,7 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
         <div className="card-content">
           {renderContent()}
         </div>
-        <Button onClick={toggleShowMore}>{showMore ? 'Ver menos' : 'Ver mais'}</Button>
+        <Button onClick={toggleShowMore}>{showMore ? 'Show less' : 'Show more'}</Button>
       </S.InfoWrapper>
     </S.CardContainer>
   );

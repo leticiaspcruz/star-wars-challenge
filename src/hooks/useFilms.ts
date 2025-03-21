@@ -26,8 +26,8 @@ const useFilms = (id?: string) => {
         detailCache.current[id] = data;
         setFilm(data);
       } catch (err) {
-        console.error('Erro ao buscar filme:', err);
-        setError('Erro ao buscar filme.');
+        console.error('Error fetching movie:', err);
+        setError('Error fetching movie.');
       } finally {
         setIsLoading(false);
       }
@@ -45,8 +45,8 @@ const useFilms = (id?: string) => {
         listCache.current['all'] = data.results;
         setFilms(data.results);
       } catch (error) {
-        console.error('Erro ao buscar filmes:', error);
-        setError('Erro ao buscar filmes.');
+        console.error('Error fetching movies:', error);
+        setError('Error fetching movies.');
       } finally {
         setTimeout(() => {
           setIsLoading(false);
