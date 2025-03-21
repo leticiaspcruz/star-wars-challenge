@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { Button, Text, Container, Loader, Banner } from '@/components';
+import { Button, Text, Container, Loader, Banner, Error } from '@/components';
 import { Planet } from '@/interfaces/swapi';
 import { usePlanets } from '@/hooks';
 import BannerPlanets from '@/assets/planets.jpg';
@@ -25,7 +25,7 @@ const PlanetDetailsPage = () => {
      );
 
   if (isLoading) return <Loader />;
-  if (error) return <Text>Ops! Não existe nada em detalhes.</Text>;
+  if (error) return <Error errorText='Ops! Ocorreu um erro, tente novamente mais tarde.' />;;
   if (!planet) return <Text>Planeta não encontrado.</Text>;
   
   return (

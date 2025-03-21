@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import useCharacters from '@/hooks/useCharacters';
-import { Button, Text, Container, Loader, Banner } from '@/components';
+import { Button, Text, Container, Loader, Banner, Error } from '@/components';
 import { Character } from '@/interfaces/swapi';
 import BannerCharacters from '@/assets/characters-banner.jpg';
 import { getIdFromUrl } from '@/utils/getIdFromUrl';
@@ -42,7 +42,7 @@ const CharacterDetailsPage = () => {
     );
   
   if (isLoading) return <Loader />;
-  if (error) return <Text>Ops! Não existe nada em detalhes.</Text>;
+  if (error) return <Error errorText='Ops! Ocorreu um erro, tente novamente mais tarde.' />;;
   if (!character) return <Text>Personagem não encontrado.</Text>;
   
   return (

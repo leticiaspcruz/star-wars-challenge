@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pagination, Text, Card, Loader } from '@/components';
+import { Pagination, Text, Card, Loader, Error } from '@/components';
 import { Character, Planet } from '@/interfaces/swapi';
 import Slider from 'react-slick';
 import * as S from './styles';
@@ -34,9 +34,6 @@ const SectionList: React.FC<SectionListProps> = ({
     favorites: 'meus favoritos',
   };
 
-  if (isLoading) return <Loader />;
-  if (isError) return <Text>Ops! Ocorreu um erro, tente novamente mais tarde.</Text>;
-
   const carouselSettings = {
     infinite: false,
     speed: 500,
@@ -58,12 +55,15 @@ const SectionList: React.FC<SectionListProps> = ({
     ],
   };
 
+  if (isLoading) return <Loader />;
+  if (isError) return <Error errorText='Ops! Ocorreu um erro, tente novamente mais tarde.' />;
+
   return (
     <S.Container>
       {useTitle && <Text weight="bold" variant="subheading">{titles[itemType]}</Text>}
 
       <S.CardList>
-        {items.length > 0 && !isLoading && !isError ? (
+        {items.length > 0 && !isLoading && !isError && (
           <Slider {...carouselSettings}>
             {items.map((item, index) => (
               <div key={index}>
@@ -71,8 +71,6 @@ const SectionList: React.FC<SectionListProps> = ({
               </div>
             ))}
           </Slider>
-        ) : (
-          !isLoading && <Text>Ops! Não existe nada em {titles[itemType]}.</Text>
         )}
       </S.CardList>
 
