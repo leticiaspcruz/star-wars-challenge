@@ -17,6 +17,10 @@ export const CardList = styled.div`
     justify-content: center;
   }
 
+  .slick-current {
+    width: auto !important;
+  }
+
   .slick-track {
     margin: ${({ theme }) => theme.sizes.xl};
   }

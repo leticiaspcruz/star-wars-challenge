@@ -6,6 +6,7 @@ export const FooterContainer = styled.footer`
   color: ${({ theme }) => theme.colors.secondary};
   padding: ${({ theme }) => theme.sizes.md} 0;
   text-align: center;
+  margin-top: auto !important;
   z-index: 1000;
 `;
 

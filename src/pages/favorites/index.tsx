@@ -16,6 +16,8 @@ const FavoritesPage = () => {
     { name: 'meus favoritos', href: '/favorites' },
   ]
 
+  const isError = !favorites || favorites.length === 0;
+
   return (
    <>
     <Banner
@@ -28,7 +30,7 @@ const FavoritesPage = () => {
       <SectionList
         items={favorites}
         isLoading={false}
-        isError={false}
+        isError={isError}
         currentPage={1}
         totalPages={1}
         onPageChange={() => {}}
