@@ -6,9 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:flat": "eslint . --config eslint.config.js"
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^15.2.3",
     "@types/react-slick": "^0.23.13",
     "axios": "^1.8.3",
     "formik": "^2.4.6",
