@@ -51,8 +51,10 @@ const SectionList: React.FC<SectionListProps> = ({
     ],
   };
 
+  const errorText = `Ops! Não encontramos nada em ${titles[itemType]}`;
+
   if (isLoading) return <Loader />;
-  if (isError) return <Error errorText='Ops! Ocorreu um erro, tente novamente mais tarde.' />;
+  if (isError) return <Error errorText={errorText} />;
   if (!isClient) return null;
 
   return (
