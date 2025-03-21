@@ -4,7 +4,7 @@ export const darkTheme = {
     secondary: '#ffdd59',
     tertiary: '#de7d2f',
     background: '#1d1d1d',
-    navbar: '#232323',
+    backgroundSecondary: '#232323',
     card: '#2b2b2b',
     text: '#f5f6fa',
     button: {

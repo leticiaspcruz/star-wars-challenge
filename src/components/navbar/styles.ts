@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: ${({ theme }) => theme.sizes.md};
-  background-color: ${({ theme }) => theme.colors.navbar};
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   font-family: ${({ theme }) => theme.fontFamily.primary};
 
   ${mediaQuery('tablet-max')}  {
@@ -28,7 +28,7 @@ export const LinksWrapper = styled.div`
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.primary};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
 `;
 
@@ -49,7 +49,7 @@ export const MobileMenu = styled.div<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.sizes.sm};
-  background-color: ${({ theme }) => theme.colors.navbar};
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   padding: ${({ theme }) => theme.sizes.md};
   width: 100%;
   position: absolute;

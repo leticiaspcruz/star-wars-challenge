@@ -6,7 +6,7 @@ export  const BannerContainer = styled.div`
   height: 300px;
   position: relative;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.navbar};
+  background: ${({ theme }) => theme.colors.backgroundSecondary};
 `;
 
 export const BannerImage = styled.img`

@@ -3,8 +3,8 @@ export const lightTheme = {
       primary: '#ffc048',
       secondary: '#ffdd59',
       tertiary: '#de7d2f',
-      background: '#fff9cc',
-      navbar: '#232323',
+      background: '##f1f1f1',
+      backgroundSecondary: '#dd6300',
       card: '#f5f6fa',
       text: '#1d1d1d',
       button: {
