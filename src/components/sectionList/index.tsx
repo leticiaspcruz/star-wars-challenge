@@ -4,6 +4,7 @@ import { Character, Planet } from '@/interfaces/swapi';
 import Slider from 'react-slick';
 import { useScreenSize } from '@/hooks';
 import * as S from './styles';
+
 interface SectionListProps {
   items: (Character | Planet)[];
   isLoading: boolean;
@@ -41,12 +42,6 @@ const SectionList: React.FC<SectionListProps> = ({
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
       {
         breakpoint: 600,
         settings: {

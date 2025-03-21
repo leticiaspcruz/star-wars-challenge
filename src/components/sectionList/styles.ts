@@ -9,6 +9,7 @@ export const CardList = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: ${({ theme }) => theme.sizes.md};
+    place-items: center;
   }
 
   .slick-slide {
