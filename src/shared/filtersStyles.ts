@@ -10,6 +10,10 @@ export const Container = styled.div`
   font-weight: ${({ theme }) => theme.fontWeights.regular};
   font-family: ${({ theme }) => theme.fontFamily.primary};
   padding: ${({ theme }) => theme.sizes.xl};
+
+  ${mediaQuery('super')} {
+      flex-direction: row;
+  }
 `;
 
 export const FormContainer = styled.form`
@@ -18,6 +22,10 @@ export const FormContainer = styled.form`
   gap: ${({ theme }) => theme.sizes.l};
   width: 100%;
   max-width: 800px;
+
+  ${mediaQuery('super')} {
+    grid-template-columns: repeat(5, 2fr); 
+  }
 `;
 
 export const Wrapper = styled.div`

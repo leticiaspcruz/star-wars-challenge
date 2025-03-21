@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { Planet } from '@/interfaces/swapi';
 import { Select } from '@/components';
-import * as S from './styles';
+import * as S from '@/shared/filtersStyles';
 interface PlanetFiltersProps {
   onChangeFilters: (filters: Partial<Planet>) => void;
   currentFilters: Partial<Planet>;

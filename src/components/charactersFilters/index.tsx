@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { Character } from '@/interfaces/swapi';
 import { Select } from '@/components';
-import * as S from './styles';
+import * as S from '@/shared/filtersStyles';
 interface CharacterFiltersProps {
   onChangeFilters: (filters: Partial<Character>) => void;
   currentFilters: Partial<Character>;

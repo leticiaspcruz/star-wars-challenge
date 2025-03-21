@@ -12,6 +12,10 @@ export const CardList = styled.div`
     place-items: center;
   }
 
+   ${mediaQuery('super')} {
+      grid-template-columns: repeat(5, 2fr); 
+  }
+
   .slick-slide {
     display: flex;
     justify-content: center;
