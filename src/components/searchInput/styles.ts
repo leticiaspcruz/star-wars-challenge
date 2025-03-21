@@ -1,3 +1,4 @@
+import { mediaQuery } from '@/utils/getScreenSize';
 import { styled } from 'styled-components';
 
 export const Container = styled.div`
@@ -26,6 +27,10 @@ export const SearchContainer = styled.div`
   width: 50%;
   justify-content: center;
   align-items: center;
+
+   ${mediaQuery('tablet-max')} {
+      width: 100%;
+    }
 `;
 
 export const IconWrapper = styled.div`

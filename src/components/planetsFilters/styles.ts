@@ -9,7 +9,7 @@ export const Container = styled.div`
   gap: ${({ theme }) => theme.sizes.l};
   font-weight: ${({ theme }) => theme.fontWeights.regular};
   font-family: ${({ theme }) => theme.fontFamily.primary};
-  padding: ${({ theme }) => theme.sizes.xl};
+  padding: ${({ theme }) => theme.sizes.lg};
 `;
 
 export const FormContainer = styled.form`
