@@ -10,6 +10,7 @@
     "lint:flat": "eslint . --config eslint.config.js"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.3.1",
     "@next/eslint-plugin-next": "^15.2.3",
     "@types/react-slick": "^0.23.13",
     "axios": "^1.8.3",
