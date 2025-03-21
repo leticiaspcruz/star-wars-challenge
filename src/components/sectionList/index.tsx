@@ -33,7 +33,7 @@ const SectionList: React.FC<SectionListProps> = ({
   const titles: Record<string, string> = {
     character: 'Characters',
     planet: 'Planets',
-    favorites: 'Favorites',
+    favorites: 'My Favorites',
   };
 
   const carouselSettings = {

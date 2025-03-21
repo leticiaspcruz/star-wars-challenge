@@ -38,7 +38,7 @@ const FavoritesPage = () => {
         onPageChange={() => {}}
         itemType="favorites"
         usePagination={false}
-        useTitle={false}
+        useTitle={true}
       />
     </Container>
    </>
