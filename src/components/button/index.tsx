@@ -8,7 +8,7 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
-const ButtonComponent: React.FC<ButtonProps> = ({ size = 'small', onClick, disabled, children }) => {
+const Button: React.FC<ButtonProps> = ({ size = 'small', onClick, disabled, children }) => {
   return (
     <S.Button size={size} onClick={onClick} disabled={disabled}>
       {children}
@@ -16,4 +16,4 @@ const ButtonComponent: React.FC<ButtonProps> = ({ size = 'small', onClick, disab
   );
 };
 
-export default ButtonComponent;
+export default Button;

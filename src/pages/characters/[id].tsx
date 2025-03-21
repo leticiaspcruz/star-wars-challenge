@@ -40,11 +40,11 @@ const CharacterDetailsPage = () => {
         )}
       </>
     );
-  
+
   if (isLoading) return <Loader />;
   if (error) return <Error errorText='Oops! An error occurred, please try again later.' />;;
   if (!character) return <Text>Character not found.</Text>;
-  
+
   return (
     <>
     <Banner
