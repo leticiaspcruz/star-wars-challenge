@@ -11,14 +11,6 @@ const ignite = keyframes`
   50% { height: 160px; opacity: 1; }
 `;
 
-const rotateSwing = keyframes`
-  0% { transform: rotate(0deg); opacity: 0.4; }
-  25% { transform: rotate(90deg); opacity: 1; }
-  50% { transform: rotate(180deg); opacity: 0.4; }
-  75% { transform: rotate(270deg); opacity: 1; }
-  100% { transform: rotate(360deg); opacity: 0.4; }
-`;
-
 export const Container = styled.div`
   width: 100%;
   margin: 40px auto;
@@ -31,13 +23,10 @@ export const Container = styled.div`
 
 export const Lightsaber = styled.div`
   position: relative;
-  width: 20px;
-  height: 200px;
-  animation: ${rotateSwing} 2s linear infinite;
+  height: 210px;
   
   ${mediaQuery('tablet-min')} {
     width: 15px;
-    height: 160px;
   }
 `;
 
