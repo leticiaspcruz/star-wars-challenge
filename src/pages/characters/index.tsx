@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { useCharacters } from '@/hooks';
 import { SearchInput, SectionList, Breadcrumb, Container, Banner, CharacterFilters } from '@/components';
 import { BannerCharacters } from '@/assets';
@@ -18,10 +18,10 @@ const CharactersPage = () => {
 
   const { characters, isLoading, error, totalPages } = useCharacters(searchTerm, characterPage);
 
-  const handleSearch = (term: string) => {
+  const handleSearch = useCallback((term: string) => {
     setSearchTerm(term);
-    setCharacterPage(1);
-  };
+    setCharacterPage(1); 
+  }, []);
 
   const handlePageChange = (newPage: number) => {
     setCharacterPage(newPage);

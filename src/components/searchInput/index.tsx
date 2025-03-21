@@ -17,16 +17,8 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch, placeholder }) => {
   };
 
   useEffect(() => {
-    if (debouncedValue !== undefined) {
       onSearch(debouncedValue);
-    }
   }, [debouncedValue, onSearch]);
-
-  useEffect(() => {
-    if (inputValue === '') {
-      onSearch('');
-    }
-  }, [inputValue, onSearch]);
 
   return (
     <S.Container>

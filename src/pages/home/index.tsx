@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useCharacters, usePlanets } from '@/hooks';
 import { SearchInput, SectionList, Container, Banner } from '@/components';
 import { BannerHome } from '@/assets';
@@ -11,11 +11,11 @@ const Home = () => {
   const { characters, isLoading: isCharactersLoading, error: charactersError, totalPages: characterTotalPages } = useCharacters(searchTerm, characterPage);
   const { planets, isLoading: isPlanetsLoading, error: planetsError, totalPages: planetTotalPages } = usePlanets(searchTerm, planetPage);
 
-  const handleSearch = (term: string) => {
+  const handleSearch = useCallback((term: string) => {
     setSearchTerm(term);
     setCharacterPage(1);
     setPlanetPage(1);
-  };
+  }, []);
 
   const handlePageChange = (newPage: number) => {
     if (characterPage) {

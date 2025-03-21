@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { SearchInput, SectionList, Breadcrumb, Container, Banner, PlanetsFilters } from '@/components';
 import { usePlanets } from '@/hooks';
 import { BannerPlanets } from '@/assets';
@@ -11,10 +11,10 @@ const PlanetsPage = () => {
 
   const { planets, isLoading: isPlanetsLoading, error: planetsError, totalPages: planetTotalPages } = usePlanets(searchTerm, planetPage);
 
-  const handleSearch = (term: string) => {
+  const handleSearch = useCallback((term: string) => {
     setSearchTerm(term);
     setPlanetPage(1); 
-  };
+  }, []);
 
   const handlePageChange = (newPage: number) => {
     setPlanetPage(newPage);

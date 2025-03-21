@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useFilms } from '@/hooks';
 import { Button, Text, Container, Loader, Banner, Error } from '@/components';
 import { BannerHome } from '@/assets';
-import Image, { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from "next/legacy/image";
 import { formatDate } from '@/utils/formatDate';
 import { FilmOne, FilmTwo, FilmThree, FilmFour, FilmFive, FilmSix } from '@/assets';
 import * as S from '@/shared/pagesStyles';
