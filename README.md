@@ -1,6 +1,12 @@
 # Star Wars Challenge Project
 
-Este projeto foi desenvolvido com Next.js, React.js e TypeScript para demonstrar minhas habilidades com essas tecnologias. 
+Este projeto foi desenvolvido com Next.js, React.js e TypeScript para demonstrar minhas habilidades com essas tecnologias.
+
+## Link do site:
+
+Confira como ficou este projeto:
+
+https://star-wars-challenge-nu.vercel.app/home
 
 ## Iniciando o Projeto
 
