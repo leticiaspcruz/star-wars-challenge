@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import isPropValid from '@emotion/is-prop-valid';
 import { StyleSheetManager } from 'styled-components';
+import { MainContainer} from '@/shared/pagesStyles';
 
 const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
@@ -18,11 +19,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
       <StyleSheetManager shouldForwardProp={isPropValid}>
-      <div className={`${instrumentSans.variable}`}>
+      <div
+        className={`${instrumentSans.variable}`}
+      >
         <GlobalStyles />
-        <NavBar />
-        <Component {...pageProps} />
-        <Footer />
+        <MainContainer>
+          <NavBar />
+          <Component {...pageProps} />
+          <Footer />
+        </MainContainer>
       </div>
       </StyleSheetManager>
     </ThemeProvider>

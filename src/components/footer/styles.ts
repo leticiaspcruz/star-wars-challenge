@@ -6,8 +6,8 @@ export const FooterContainer = styled.footer`
   color: ${({ theme }) => theme.colors.secondary};
   padding: ${({ theme }) => theme.sizes.md} 0;
   text-align: center;
+  top: 0;
   margin-top: auto !important;
-  z-index: 1000;
 `;
 
 export const SocialIconsContainer = styled.div`

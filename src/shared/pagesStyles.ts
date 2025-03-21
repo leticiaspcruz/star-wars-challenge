@@ -31,3 +31,9 @@ export const PageLink = styled(Link)`
     font-weight: ${({ theme }) => theme.fontWeights.bold};
     font-family:  ${({ theme }) => theme.fontFamily.primary};
 `;
+
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
