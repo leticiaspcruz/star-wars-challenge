@@ -5,6 +5,12 @@ export const CardList = styled.div`
   gap: ${({ theme }) => theme.sizes.md};
   margin: ${({ theme }) => theme.sizes.md};
 
+   ${mediaQuery('laptop-min')} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: ${({ theme }) => theme.sizes.md};
+  }
+
   .slick-slide {
     display: flex;
     justify-content: center;

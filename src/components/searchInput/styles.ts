@@ -5,7 +5,7 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: ${({ theme }) => theme.sizes.md};
+    margin: ${({ theme }) => theme.sizes.super} auto;
     gap: ${({ theme }) => theme.sizes.sm};
 `;
 
