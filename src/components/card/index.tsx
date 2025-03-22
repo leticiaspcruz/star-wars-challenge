@@ -97,7 +97,7 @@ const Card: React.FC<CardProps> = ({ type, data }) => {
     }
 
     if (type === 'mixed') {
-      return renderMixedInfo(data); 
+      return renderMixedInfo(data);
     }
 
     return type === 'character'

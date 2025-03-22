@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
   ],
   images: {
     domains: ['example.com'],
+    localPatterns: [
+      {
+        pathname: '/assets/**',
+        search: '',
+      },
+    ],
   },
 };
 
