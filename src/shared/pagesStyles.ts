@@ -16,7 +16,6 @@ export const ImageContainer = styled.div`
 `;
 
 export const CardContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.card};
   padding: 24px 16px;
   box-shadow: rgba(29, 29, 29, 0.24) 0px 8px 16px;
   border-radius: 24px;

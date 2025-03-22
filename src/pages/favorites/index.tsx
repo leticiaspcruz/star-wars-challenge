@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SectionList, Breadcrumb, Container, Banner } from '@/components';
 import { Character, Planet } from '@/interfaces/swapi';
-import { BannerFavorites } from '@/assets';
+import { BANNERS } from '@/constants/banners';
 
 const FavoritesPage = () => {
   const [favorites, setFavorites] = useState<(Character | Planet)[]>([]);
@@ -23,10 +23,10 @@ const FavoritesPage = () => {
   return (
    <>
     <Banner
-    imageUrl={BannerFavorites}
-    altText="My favorites"
-    text="My favorites"
-  />
+      pageName={BANNERS.favorites.pageName}
+      pageDescription={BANNERS.favorites.pageDescription}
+      finalText={BANNERS.favorites.pageName}
+    />
     <Container>
       <Breadcrumb items={breadcrumbItems} />
       <SectionList

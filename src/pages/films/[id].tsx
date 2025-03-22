@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useFilms } from '@/hooks';
 import { Button, Text, Container, Loader, Banner, Error } from '@/components';
-import { BannerHome } from '@/assets';
+import { BANNERS } from '@/constants/banners';
 import Image, { StaticImageData } from "next/legacy/image";
 import { formatDate } from '@/utils/formatDate';
 import { FilmOne, FilmTwo, FilmThree, FilmFour, FilmFive, FilmSix } from '@/assets';
@@ -53,10 +53,10 @@ const FilmDetailsPage = () => {
 
   return (
     <>
-      <Banner
-        imageUrl={BannerHome}
-        altText="Film Details"
-        text="Film Details"
+       <Banner
+          pageName={BANNERS.film.pageName}
+          pageDescription={BANNERS.film.pageDescription}
+          finalText={BANNERS.film.pageName}
       />
       <Container>
         <Text variant="subheading" weight="bold" align="center">

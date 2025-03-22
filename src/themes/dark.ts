@@ -3,9 +3,8 @@ export const darkTheme = {
     primary: '#ffc048',
     secondary: '#ffdd59',
     tertiary: '#de7d2f',
-    background: '#1d1d1d',
-    backgroundSecondary: '#232323',
-    card: '#2b2b2b',
+    background: '#0e0e0e',
+    card: '#141414',
     text: '#f5f6fa',
     button: {
       text: '#1d1d1d',

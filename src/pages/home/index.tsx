@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useCharacters, usePlanets } from '@/hooks';
 import { SearchInput, SectionList, Container, Banner } from '@/components';
-import { BannerHome } from '@/assets';
+import { BANNERS } from '@/constants/banners';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -38,17 +38,17 @@ const Home = () => {
   const currentPage = characterPage || planetPage;
   const totalPages = characterTotalPages +  planetTotalPages;
 
-  return ( 
+  return (
     <>
       <Banner
-        imageUrl={BannerHome}
-        altText="Star Wars Challenge"
-        text="Welcome to the Star Wars Challenge!"
+        pageName={BANNERS.homepage.pageName}
+        pageDescription={BANNERS.homepage.pageDescription}
+        finalText={BANNERS.homepage.pageName}
       />
       <Container>
         <SearchInput onSearch={handleSearch} placeholder="Find characters or planets" />
-        
-            <SectionList 
+
+            <SectionList
             items={combinedArray}
             isLoading={isLoading}
             isError={isError}

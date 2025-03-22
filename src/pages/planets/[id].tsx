@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Button, Text, Container, Loader, Banner, Error } from '@/components';
 import { Planet } from '@/interfaces/swapi';
 import { usePlanets } from '@/hooks';
-import { BannerPlanets } from '@/assets';
+import { BANNERS } from '@/constants/banners';
 import * as S from '@/shared/pagesStyles';
 
 const PlanetDetailsPage = () => {
@@ -27,13 +27,13 @@ const PlanetDetailsPage = () => {
   if (isLoading) return <Loader />;
   if (error) return <Error errorText='Oops! An error occurred, please try again later' />;;
   if (!planet) return <Text>Planet not found.</Text>;
-  
+
   return (
     <>
     <Banner
-    imageUrl={BannerPlanets}
-    altText="Planet details"
-    text="Planet details"
+        pageName={BANNERS.planets.pageName}
+        pageDescription={BANNERS.planets.pageDescription}
+        finalText={BANNERS.planets.pageName}
     />
     <Container>
       <Text variant='subheading' weight='bold' align='center'>Planet Details</Text>

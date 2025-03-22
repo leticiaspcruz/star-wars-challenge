@@ -1,8 +1,8 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useCharacters } from '@/hooks';
 import { SearchInput, SectionList, Breadcrumb, Container, Banner, CharacterFilters } from '@/components';
-import { BannerCharacters } from '@/assets';
 import { FiltersCharacters } from '@/interfaces/filters';
+import { BANNERS } from '@/constants/banners';
 
 const CharactersPage = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -20,7 +20,7 @@ const CharactersPage = () => {
 
   const handleSearch = useCallback((term: string) => {
     setSearchTerm(term);
-    setCharacterPage(1); 
+    setCharacterPage(1);
   }, []);
 
   const handlePageChange = (newPage: number) => {
@@ -29,7 +29,7 @@ const CharactersPage = () => {
 
   const handleChangeFilters = (newFilters: typeof filters) => {
     setFilters(newFilters);
-    setCharacterPage(1); 
+    setCharacterPage(1);
   };
 
   const filteredCharacters = useMemo(() => {
@@ -62,13 +62,17 @@ const CharactersPage = () => {
 
   return (
     <>
-      <Banner imageUrl={BannerCharacters} altText="Characters" text="Characters" />
+      <Banner
+        pageName={BANNERS.characters.pageName}
+        pageDescription={BANNERS.characters.pageDescription}
+        finalText={BANNERS.characters.pageName}
+      />
       <Container>
         <Breadcrumb items={breadcrumbItems} />
         <SearchInput onSearch={handleSearch} placeholder="Find characters" />
 
-        <CharacterFilters 
-          onChangeFilters={handleChangeFilters} 
+        <CharacterFilters
+          onChangeFilters={handleChangeFilters}
           currentFilters={filters}
           characters={characters}
         />

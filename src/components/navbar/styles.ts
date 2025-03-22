@@ -7,7 +7,6 @@ export const Container = styled.div<{ isMenuOpen?: boolean }>`
   justify-content: space-between;
   align-items: center;
   padding: ${({ theme }) => theme.sizes.md};
-  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   font-family: ${({ theme }) => theme.fontFamily.primary};
   position: ${({ isMenuOpen }) => (isMenuOpen ? 'fixed' : 'static')};
   top: 0;
@@ -54,7 +53,7 @@ export const MobileMenu = styled.div<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.sizes.sm};
-  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
+  background-color: ${({ theme }) => theme.colors.background};
   padding: ${({ theme }) => theme.sizes.md};
   width: 100%;
   position: absolute;

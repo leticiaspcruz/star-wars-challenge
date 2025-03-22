@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { SearchInput, SectionList, Breadcrumb, Container, Banner, PlanetsFilters } from '@/components';
 import { usePlanets } from '@/hooks';
-import { BannerPlanets } from '@/assets';
+import { BANNERS } from '@/constants/banners';
 import { Planet } from '@/interfaces/swapi';
 
 const PlanetsPage = () => {
@@ -13,7 +13,7 @@ const PlanetsPage = () => {
 
   const handleSearch = useCallback((term: string) => {
     setSearchTerm(term);
-    setPlanetPage(1); 
+    setPlanetPage(1);
   }, []);
 
   const handlePageChange = (newPage: number) => {
@@ -54,22 +54,22 @@ const PlanetsPage = () => {
 
   return (
     <>
-      <Banner
-        imageUrl={BannerPlanets}
-        altText="Planets"
-        text="Planets"
+       <Banner
+          pageName={BANNERS.planets.pageName}
+          pageDescription={BANNERS.planets.pageDescription}
+          finalText={BANNERS.planets.pageName}
       />
       <Container>
         <Breadcrumb items={breadcrumbItems} />
         <SearchInput onSearch={handleSearch} placeholder="Find planet" />
-        
-        <PlanetsFilters 
+
+        <PlanetsFilters
           onChangeFilters={handleFilterChange}
           currentFilters={filters}
           planets={planets}
         />
 
-        <SectionList 
+        <SectionList
           items={filteredPlanets}
           isLoading={isPlanetsLoading}
           isError={planetsError}

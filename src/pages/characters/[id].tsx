@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import useCharacters from '@/hooks/useCharacters';
 import { Button, Text, Container, Loader, Banner, Error } from '@/components';
 import { Character } from '@/interfaces/swapi';
-import { BannerCharacters } from '@/assets';
 import { getIdFromUrl } from '@/utils/getIdFromUrl';
+import { BANNERS } from '@/constants/banners';
 import * as S from '@/shared/pagesStyles';
 
 const CharacterDetailsPage = () => {
@@ -48,9 +48,9 @@ const CharacterDetailsPage = () => {
   return (
     <>
     <Banner
-    imageUrl={BannerCharacters}
-    altText="Character details"
-    text="Character details"
+        pageName={BANNERS.characters.pageName}
+        pageDescription={BANNERS.characters.pageDescription}
+        finalText={BANNERS.characters.pageName}
     />
     <Container>
       <Text variant='subheading' weight='bold' align='center'>Character Details</Text>

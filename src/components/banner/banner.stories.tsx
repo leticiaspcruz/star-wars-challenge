@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Banner from './index';
-import { StaticImageData } from 'next/legacy/image';
-import mockImage from '../../assets/home-banner.jpg';
 
 const meta = {
   title: 'Components/Banner',
@@ -11,8 +9,9 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    altText: { control: 'text' },
-    text: { control: 'text' },
+    pageName: { control: 'text' },
+    pageDescription: { control: 'text' },
+    finalText: { control: 'text' },
   },
 } satisfies Meta<typeof Banner>;
 
@@ -21,8 +20,24 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    imageUrl: mockImage as StaticImageData,
-    altText: 'Banner Image',
-    text: 'This is a banner text',
+    pageName: 'A Long Time Ago...',
+    pageDescription: 'In a galaxy far, far away....',
+    finalText: 'The End.',
+  },
+};
+
+export const ShortText: Story = {
+  args: {
+    pageName: 'Home',
+    pageDescription: 'Welcome',
+    finalText: 'Home.',
+  },
+};
+
+export const LongText: Story = {
+  args: {
+    pageName: 'The Galactic Empire Strikes Back with a Very Long Title',
+    pageDescription: 'This is a description that goes on and on to test how it handles very long text.',
+    finalText: 'A very long final text to test the limits of the component.',
   },
 };

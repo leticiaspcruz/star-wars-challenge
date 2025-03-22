@@ -3,10 +3,9 @@ export const lightTheme = {
       primary: '#ffc048',
       secondary: '#ffdd59',
       tertiary: '#de7d2f',
-      background: '##f1f1f1',
-      backgroundSecondary: '#dd6300',
-      card: '#f5f6fa',
-      text: '#1d1d1d',
+      background: '#0e0e0e',
+      card: '#de7d2f',
+      text: '#f5f6fa',
       button: {
         text: '#1d1d1d',
       }
@@ -40,4 +39,3 @@ export const lightTheme = {
       super: '4rem', // 64px
     },
   };
-  

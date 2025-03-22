@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import SpaceImage from '@/assets/star-wars-space.jpg';
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -19,7 +20,10 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: ${({ theme }) => theme.colors.background};
+        background-image: url(${SpaceImage.src});
+        background-size: cover;
+        background-repeat: repeat;
+        background-position: center;
         color: ${({ theme }) => theme.colors.text};
         transition: background-color 0.3s ease;
     }

@@ -9,12 +9,12 @@ interface TextProps {
   className?: string;
 }
 
-const Text: React.FC<TextProps> = ({ 
-  variant = 'paragraph', 
-  weight = 'regular', 
+const Text: React.FC<TextProps> = ({
+  variant = 'paragraph',
+  weight = 'regular',
   align = 'left',
-  children, 
-  className 
+  children,
+  className
 }) => {
   return (
     <S.Text
