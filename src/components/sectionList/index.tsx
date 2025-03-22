@@ -49,7 +49,7 @@ const SectionList: React.FC<SectionListProps> = ({
         },
       },
       {
-        breakpoint: 768, 
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
         },
@@ -57,7 +57,7 @@ const SectionList: React.FC<SectionListProps> = ({
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3, 
+          slidesToShow: 3,
         },
       },
     ],
@@ -80,7 +80,7 @@ const SectionList: React.FC<SectionListProps> = ({
       <S.CardList>
         {items.length > 0 && !isLoading && !isError && (
           isMobileView ? (
-            <Slider {...carouselSettings}>
+            <Slider {...carouselSettings} data-testid="slick-slider">
               {items.map((item, index) => (
                 <div key={index}>
                   <Card data={item} type={itemType} />

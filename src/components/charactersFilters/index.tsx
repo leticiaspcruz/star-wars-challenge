@@ -3,11 +3,12 @@ import { useFormik } from 'formik';
 import { Character } from '@/interfaces/swapi';
 import { Select } from '@/components';
 import * as S from '@/shared/filtersStyles';
+
 interface CharacterFiltersProps {
   onChangeFilters: (filters: Partial<Character>) => void;
   currentFilters: Partial<Character>;
   characters: Character[];
-};
+}
 
 const CharacterFilters = ({ onChangeFilters, currentFilters, characters }: CharacterFiltersProps) => {
   const formik = useFormik({
@@ -35,33 +36,31 @@ const CharacterFilters = ({ onChangeFilters, currentFilters, characters }: Chara
   ];
 
   return (
-      <S.Container>
+    <S.Container>
       <S.FormContainer onSubmit={formik.handleSubmit}>
-          {filterFields.map(field => (
-            <Select
-              key={field.key}
-              id={field.key}
-              name={field.key}
-              label={field.label}
-              value={formik.values[field.key] || ''}
-              options={getUniqueValues(field.key)}
-              onChange={formik.handleChange}
-            />
-          ))}
-          </S.FormContainer>
-          <S.Wrapper>
-          <S.FilterButton type="submit" onClick={() => formik.handleSubmit()}>
+        {filterFields.map(field => (
+          <Select
+            key={field.key}
+            id={field.key}
+            name={field.key}
+            label={field.label}
+            value={formik.values[field.key] || ''}
+            options={getUniqueValues(field.key)}
+            onChange={formik.handleChange}
+            dataTestId={`select-${field.key}`}
+          />
+        ))}
+        <S.Wrapper>
+          <S.FilterButton type="submit" data-testid="filter-button-apply-filter">
             Apply filter
           </S.FilterButton>
-          <S.FilterButton
-            type="button"
-            onClick={handleReset}
-          >
+          <S.FilterButton type="button" onClick={handleReset} data-testid="filter-button-reset-filter">
             Reset filter
           </S.FilterButton>
         </S.Wrapper>
-      </S.Container>
-    );
+      </S.FormContainer>
+    </S.Container>
+  );
 };
 
 export default CharacterFilters;

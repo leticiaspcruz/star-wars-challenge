@@ -6,11 +6,11 @@ export default function LoaderLightsaber() {
   return (
     <Container>
       {LIGHTSABERS.map((saber) => (
-        <Lightsaber key={saber.id}>
-          <Switch>
+        <Lightsaber key={saber.id} data-testid={`lightsaber-${saber.id}`}>
+          <Switch data-testid={`switch-${saber.id}`}>
             <span />
           </Switch>
-          <Plasma className={saber.color} />
+          <Plasma data-testid={`plasma-${saber.color}`} className={saber.color} />
         </Lightsaber>
       ))}
     </Container>
