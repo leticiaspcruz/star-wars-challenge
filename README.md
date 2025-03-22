@@ -62,10 +62,6 @@ Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
 - **[Formik](https://formik.org/):** Biblioteca para gerenciamento de formulários em React, simplificando o processo de validação e envio de dados.
 
 
-## Melhorias Futuras
-
-- Adicionar testes unitários para garantir a qualidade do código.
-
 ## Contribuindo
 
 Se você tiver alguma sugestão de melhoria ou encontrar algum problema, sinta-se à vontade para abrir uma issue ou enviar um pull request!
