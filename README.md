@@ -68,7 +68,7 @@ O Storybook é utilizado para desenvolvimento e documentação de componentes is
 
 O projeto possui testes unitários utilizando Jest e React Testing Library.
 
-1. Executando o storybook localmente:
+1. Executando os testes:
     ```bash
      npm run test
     # ou
