@@ -1,5 +1,8 @@
 # Star Wars Challenge Project
 
+![image](https://github.com/user-attachments/assets/73577e03-cb33-40c7-8c81-16c89af276f9)
+
+
 Este projeto foi desenvolvido com Next.js, React.js e TypeScript para demonstrar minhas habilidades com essas tecnologias.
 
 ## Link do site:
