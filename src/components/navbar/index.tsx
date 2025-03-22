@@ -13,14 +13,14 @@ const NavBar = () => {
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
-  
+
   return (
-    <S.Container>
+    <S.Container isMenuOpen={isMenuOpen}>
       <Logo />
       {isMobileView ? (
         <>
           <SwitchTheme size="8px" />
-          <nav>          
+          <nav>
             <S.HamburgerIcon onClick={toggleMenu}>☰</S.HamburgerIcon>
             <S.MobileMenu isOpen={isMenuOpen}>
               {NAV_LINKS.map((link) => (

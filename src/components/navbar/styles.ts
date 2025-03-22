@@ -2,13 +2,18 @@ import { styled } from 'styled-components';
 import Link from 'next/link';
 import { mediaQuery } from '@/utils/getScreenSize';
 
-export const Container = styled.div`
+export const Container = styled.div<{ isMenuOpen?: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: ${({ theme }) => theme.sizes.md};
   background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   font-family: ${({ theme }) => theme.fontFamily.primary};
+  position: ${({ isMenuOpen }) => (isMenuOpen ? 'fixed' : 'static')};
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 
   ${mediaQuery('tablet-max')}  {
     flex-direction: row;
@@ -55,9 +60,9 @@ export const MobileMenu = styled.div<{ isOpen: boolean }>`
   position: absolute;
   top: 120px;
   left: 0;
-  max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')}; 
+  max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
   visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
-  overflow: hidden; 
+  overflow: hidden;
   transition: max-height 0.3s ease-out, visibility 0.3s ease-out;
   z-index: 20;
 `;
