@@ -19,12 +19,13 @@ export const BannerImage = styled.img`
 export const BannerText = styled.div`
     position: absolute;
     top: 50%;
-    left: 20%;
+    left: 18%;
     transform: translate(-50%, -50%);
-    font-size: ${({ theme }) => theme.fontSizes.md};
-    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    font-size: ${({ theme }) => theme.fontSizes.l};
+    font-weight: 800;
     color: ${({ theme }) => theme.colors.primary};
     font-family: ${({ theme }) => theme.fontFamily.primary};
+    text-shadow: 1px 1px 10px black;
 
  ${mediaQuery('tablet-max')} {
     left: 40%;
