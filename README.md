@@ -48,6 +48,35 @@ Siga os passos abaixo para rodar o projeto em sua máquina local:
     http://localhost:3000
     ```
 
+### Rodando o Storybook
+
+O Storybook é utilizado para desenvolvimento e documentação de componentes isolados.
+
+1. Executando o storybook localmente:
+    ```bash
+     npm run storybook
+    # ou
+    yarn storybook
+    ```
+
+2. Abra o navegador e acesse:
+    ```
+    http://localhost:6006
+    ```
+
+### Rodando os Testes Unitários
+
+O projeto possui testes unitários utilizando Jest e React Testing Library.
+
+1. Executando o storybook localmente:
+    ```bash
+     npm run test
+    # ou
+    yarn test
+    ```
+
+
+
 ## Tecnologias Utilizadas
 
 Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
@@ -60,6 +89,9 @@ Este projeto foi construído utilizando as seguintes tecnologias e ferramentas:
 - **[React Icons](https://react-icons.github.io/react-icons/):** Biblioteca para incluir ícones no projeto.
 - **[React Slick](https://react-slick.neostack.com/docs/get-started):** Biblioteca de carrossel (slideshow) para React, baseada no famoso [Slick Carousel](https://kenwheeler.github.io/slick/).
 - **[Formik](https://formik.org/):** Biblioteca para gerenciamento de formulários em React, simplificando o processo de validação e envio de dados.
+- **[Storybook](https://storybook.js.org/docs/react/get-started/introduction):** Ferramenta para construir e documentar componentes de forma isolada.
+- **[Jest](https://jestjs.io/docs/getting-started):** Framework de testes em JavaScript.
+- **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/):** Utilitário para testes de componentes React com foco em boas práticas.
 
 
 ## Contribuindo
